@@ -1,24 +1,13 @@
-
-class Book {
-    constructor(
-      title = 'Unknown',
-      author = 'Unknown',
-      pages = '0',
-      isRead = false
-    ) {
-      this.title = title
-      this.author = author
-      this.pages = pages
-      this.isRead = isRead
-    }
-  }
-
-  class Library {
-    constructor() {
-        this.books = []
-    }
-  }
-
-//   Code
-
-const library = new Library();
+function Book(title, author, pages, isRead) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.isRead = isRead;
+  this.info = () => {
+    console.log(
+      `${title} by ${author}, ${pages} pages, ${
+        isRead ? "read" : "not read yet"
+      }.`
+    );
+  };
+}

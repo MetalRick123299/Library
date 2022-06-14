@@ -1,35 +1,85 @@
 :root {
-    --bg-color: ;
-    --text-color: ;
+  --bg-color: ;
+  --text-color: ;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;   
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 header {
-    background-color: gray;
-    font-size: 3rem;
+  background-color: gray;
+  font-size: 3rem;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 15rem 1rem 15rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 15rem 1rem 15rem;
+
+  border-bottom: 1px solid black;
 }
 header button {
-    font-size: 2rem;
-    padding: 1rem 2rem 1rem 2rem;
-    border-radius: 3rem;
-    outline: none;
-    border: none;
-    transition: all 0.2s;
-    box-shadow: 0 0.25rem 10px black;
-    cursor: pointer;
+  font-size: 2rem;
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 3rem;
+  outline: none;
+  border: none;
+  transition: all 0.2s;
+  box-shadow: 0 0.25rem 10px black;
+  cursor: pointer;
 }
 
 header button:active {
-    transition: all 0.2s;
-    box-shadow: 0 0 10px black;
+  transition: all 0.2s;
+  box-shadow: 0 0 10px black;
+}
+
+.center {
+  background-color: rgb(130, 128, 128);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-book {
+  display: flex;
+  background-color: rgb(170, 170, 170);
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  outline: none;
+
+  font-size: 2rem;
+  margin: 1rem 0 1rem 0;
+  padding: 2rem;
+  border-radius: 3rem;
+
+  transition: all 0.2s;
+  box-shadow: 0 0.25rem 10px black;
+  cursor: pointer;
+}
+
+.add-book:active {
+  transition: all 0.2s;
+  box-shadow: 0 0 10px black;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.book-card {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+
+  border-radius: 1rem;
+  border: 1px solid red;
 }
