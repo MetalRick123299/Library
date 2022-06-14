@@ -1,5 +1,7 @@
 // Library Code
 const addBookButton = document.querySelector("#add-book");
+const removeBookButtons = document.querySelectorAll(".remove-book");
+const changeReadButtons = document.querySelectorAll(".read-buttons");
 
 class Book {
   constructor(
@@ -22,5 +24,20 @@ class Book {
 const Library = [];
 
 const addBook = () => {};
+addBookButton.addEventListener("click", () => {
+  addBook();
+});
 
 const removeBook = () => {};
+removeBookButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    removeBook();
+  });
+});
+
+const changeRead = () => {};
+changeReadButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    changeRead();
+  });
+});
