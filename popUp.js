@@ -4,9 +4,12 @@ const openModalButtons = document.querySelectorAll("[data-modal-target]");
 const closeModalButtons = document.querySelectorAll("[data-modal-close]");
 const overlay = document.querySelector("#overlay");
 
+const addBookForm = document.querySelector("#addBookForm");
+
 openModalButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const modal = document.querySelector(button.dataset.modalTarget);
+    addBookForm.reset();
     openModal(modal);
   });
 });
