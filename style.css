@@ -3,7 +3,9 @@
   --text-color: ;
 }
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -43,7 +45,7 @@ header button:active {
   align-items: center;
 }
 
-.add-book {
+#add-book {
   display: flex;
   background-color: rgb(170, 170, 170);
   justify-content: center;
@@ -82,4 +84,75 @@ header button:active {
 
   border-radius: 1rem;
   border: 1px solid red;
+}
+
+/* Modal CSS */
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+#modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#modal {
+  /* Center Fixed Div */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+
+  transition: 0.2s ease-in-out;
+  z-index: 10;
+
+  background-color: rgb(211, 209, 209);
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  max-width: fit-content;
+  padding: 1rem;
+  border: 3px solid black;
+  border-radius: 1rem;
+  font-size: 2rem;
+
+  gap: 1rem;
+}
+
+#modal form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+#modal form input {
+  font-size: 1.25rem;
+  /* cursor: pointer; */
+}
+
+#modal button,
+input[type="checkbox"] {
+  font-size: 2rem;
+  padding: 0.5rem;
+  outline: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#modal button:hover {
+  background-color: rgb(187, 186, 186);
+  transition: all 0.2s;
 }
