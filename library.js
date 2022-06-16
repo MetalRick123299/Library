@@ -100,7 +100,7 @@ const createBookCard = (book) => {
     readBtn.textContent = "Read";
     readBtn.classList.add("read");
   } else {
-    readBtn.textContent = "Not read";
+    readBtn.textContent = "Not Read";
     readBtn.classList.remove("read");
   }
 
