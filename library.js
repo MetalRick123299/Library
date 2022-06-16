@@ -35,14 +35,19 @@ const Library = [];
 //   createBookCard(book);
 // });
 
-const removeBook = () => {};
+const removeBook = (e) => {
+  const element = e.target.parentNode.parentNode;
+  console.log(element);
+  element.remove();
+};
 removeBookButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    removeBook();
+  button.addEventListener("click", (e) => {
+    removeBook(e);
   });
 });
 
 const changeRead = (button) => {
+  // Replace testBool with isRead property
   if (testBool) {
     button.target.classList.add("read");
     button.target.innerText = "Read";
@@ -82,7 +87,7 @@ const createBookCard = (book) => {
   bookCard.classList.add("book-card");
   buttonGroup.classList.add("buttons");
   readBtn.classList.add("read-buttons");
-  removeBtn.classList.add("read-buttons");
+  removeBtn.classList.add("remove-book");
   readBtn.onclick = changeRead;
   removeBtn.onclick = removeBook;
 
