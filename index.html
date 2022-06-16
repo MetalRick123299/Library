@@ -11,8 +11,9 @@
   </head>
   <body>
     <div id="modal" class="">
-      Add Book
+      <!-- <button id="test-button">Test</button> -->
       <form id="addBookForm" action="">
+        Add Book
         <input
           type="text"
           id="input-title"
@@ -31,7 +32,7 @@
           placeholder="Pages"
           max="100000"
         />
-        <div>Have You Read it? <input type="checkbox" /></div>
+        <div>Have You Read it? <input type="checkbox" id="input-isRead" /></div>
         <button id="add-book" type="submit">Submit</button>
       </form>
     </div>
@@ -39,7 +40,7 @@
 
     <header>
       Library
-      <button>Login</button>
+      <button id="login">Login</button>
     </header>
 
     <main>
@@ -52,16 +53,6 @@
           <strong>Author</strong>
           <p>Pages Number</p>
           <div class="buttons">
-            <button class="read-buttons">Read</button>
-            <button class="remove-book">Remove</button>
-          </div>
-        </div>
-
-        <div class="book-card">
-          <h3>Title</h3>
-          <strong>Author</strong>
-          <p>Pages Number</p>
-          <div class="buttons">
             <button class="read-buttons">Not Read</button>
             <button class="remove-book">Remove</button>
           </div>
@@ -82,7 +73,17 @@
           <strong>Author</strong>
           <p>Pages Number</p>
           <div class="buttons">
-            <button class="read-buttons">Read</button>
+            <button class="read-buttons">Not Read</button>
+            <button class="remove-book">Remove</button>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <h3>Title</h3>
+          <strong>Author</strong>
+          <p>Pages Number</p>
+          <div class="buttons">
+            <button class="read-buttons">Not Read</button>
             <button class="remove-book">Remove</button>
           </div>
         </div>

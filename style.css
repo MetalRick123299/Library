@@ -156,3 +156,27 @@ input[type="checkbox"] {
   background-color: rgb(187, 186, 186);
   transition: all 0.2s;
 }
+
+.read-buttons {
+  outline: none;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 1rem;
+
+  min-width: 100px;
+
+  background-color: red;
+}
+
+.remove-book {
+  outline: none;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 1rem;
+
+  min-width: 100px;
+}
+
+.read {
+  background-color: rgb(0, 255, 0);
+}
