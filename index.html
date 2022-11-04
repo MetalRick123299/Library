@@ -2,93 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/svg+xml" href="/book-pack.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="./book-pack.svg" />
-    <link rel="stylesheet" href="./style.css" />
-    <script src="library.js" defer></script>
-    <script src="popUp.js" defer></script>
     <title>Library</title>
   </head>
   <body>
-    <div id="modal" class="">
-      <!-- <button id="test-button">Test</button> -->
-      <form id="addBookForm" action="">
-        Add Book
-        <input
-          type="text"
-          id="input-title"
-          placeholder="Title"
-          maxlength="100"
-        />
-        <input
-          type="text"
-          id="input-author"
-          placeholder="Author"
-          maxlength="100"
-        />
-        <input
-          type="number"
-          id="input-pages"
-          placeholder="Pages"
-          max="100000"
-        />
-        <div>Have You Read it? <input type="checkbox" id="input-isRead" /></div>
-        <button id="add-book" type="submit">Submit</button>
-      </form>
-    </div>
-    <div id="overlay" class=""></div>
-
-    <header>
-      Library
-      <button id="login">Login</button>
-    </header>
-
-    <main>
-      <div class="center">
-        <button data-modal-target="#modal" id="add-book">+ Add Book</button>
-      </div>
-      <div class="book-grid">
-        <div class="book-card">
-          <h3>Title</h3>
-          <strong>Author</strong>
-          <p>Pages Number</p>
-          <div class="buttons">
-            <button class="read-buttons">Not Read</button>
-            <button class="remove-book">Remove</button>
-          </div>
-        </div>
-
-        <div class="book-card">
-          <h3>Title</h3>
-          <strong>Author</strong>
-          <p>Pages Number</p>
-          <div class="buttons">
-            <button class="read-buttons">Not Read</button>
-            <button class="remove-book">Remove</button>
-          </div>
-        </div>
-
-        <div class="book-card">
-          <h3>Title</h3>
-          <strong>Author</strong>
-          <p>Pages Number</p>
-          <div class="buttons">
-            <button class="read-buttons">Not Read</button>
-            <button class="remove-book">Remove</button>
-          </div>
-        </div>
-
-        <div class="book-card">
-          <h3>Title</h3>
-          <strong>Author</strong>
-          <p>Pages Number</p>
-          <div class="buttons">
-            <button class="read-buttons">Not Read</button>
-            <button class="remove-book">Remove</button>
-          </div>
-        </div>
-      </div>
-    </main>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
