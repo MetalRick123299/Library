@@ -10,10 +10,6 @@ export type IBookItem = {
 
 export default function BookItem({ book }: { book: IBookItem }) {
   const { title, author, pagesRead, totalPages } = book;
-  const [isRead, setIsRead] = useState(false);
-  const changeRead = () => {
-    setIsRead((prev) => !prev);
-  };
 
   return (
     <div className="bg-primary-item flex flex-col items-center gap-3 p-5 rounded-xl w-64 text-2xl">
@@ -22,16 +18,16 @@ export default function BookItem({ book }: { book: IBookItem }) {
       <span className="">
         {pagesRead} / {totalPages}
       </span>
-      <button
-        type="button"
-        className={clsx(
-          'self-stretch rounded-lg p-1',
-          isRead ? 'bg-green-500' : 'bg-red-500'
-        )}
-        onClick={changeRead}
-      >
-        {isRead ? 'Read' : 'Not Read'}
-      </button>
+      <div className="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]">
+        {parseFloat((pagesRead / totalPages).toFixed(4)) * 100}%
+        <div
+          className="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
+          style={{
+            width: `${parseFloat((pagesRead / totalPages).toFixed(4)) * 100}%`,
+          }}
+        />
+      </div>
+
       <button type="button" className="bg-red-500 self-stretch rounded-lg p-1">
         Delete
       </button>

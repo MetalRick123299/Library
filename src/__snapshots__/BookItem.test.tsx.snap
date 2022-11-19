@@ -25,12 +25,16 @@ exports[`Book Item > SnapShot 1`] = `
            / 
           586
         </span>
-        <button
-          class="self-stretch rounded-lg p-1 bg-red-500"
-          type="button"
+        <div
+          class="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]"
         >
-          Not Read
-        </button>
+          7.68
+          %
+          <div
+            class="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
+            style="width: 7.68%;"
+          />
+        </div>
         <button
           class="bg-red-500 self-stretch rounded-lg p-1"
           type="button"
@@ -61,12 +65,16 @@ exports[`Book Item > SnapShot 1`] = `
          / 
         586
       </span>
-      <button
-        class="self-stretch rounded-lg p-1 bg-red-500"
-        type="button"
+      <div
+        class="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]"
       >
-        Not Read
-      </button>
+        7.68
+        %
+        <div
+          class="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
+          style="width: 7.68%;"
+        />
+      </div>
       <button
         class="bg-red-500 self-stretch rounded-lg p-1"
         type="button"
