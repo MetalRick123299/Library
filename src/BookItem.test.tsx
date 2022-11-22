@@ -1,4 +1,4 @@
-import { cleanup, getByRole, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import BookItem, { IBookItem } from './BookItem';
 
 describe('Book Item', () => {
@@ -25,7 +25,7 @@ describe('Book Item', () => {
   it('BookItem Structure', () => {
     render(<BookItem book={book} />);
 
-    const title = screen.getByRole('heading', { name: book.title });
+    const title = screen.getByRole('heading', { level: 2, name: book.title });
     const author = screen.getByText(book.author);
     const pagesElement = screen.getByText(
       `${book.pagesRead} / ${book.totalPages}`
@@ -44,6 +44,31 @@ describe('Book Item', () => {
     expect(deleteButton).toBe(deleteButton);
   });
 
+  it('Multiple books', () => {
+    bookArray.forEach((currBook) => {
+      render(<BookItem book={currBook} />);
+
+      const title = screen.getByRole('heading', {
+        level: 2,
+        name: currBook.title,
+      });
+      const author = screen.getByText(currBook.author);
+      const pagesElement = screen.getByText(
+        `${currBook.pagesRead} / ${currBook.totalPages}`
+      );
+      const progress = screen.getByText(
+        `${((currBook.pagesRead / currBook.totalPages) * 100).toFixed(2)}%`
+      );
+
+      expect(title.innerHTML).toBe(currBook.title);
+      expect(author.innerHTML).toBe(currBook.author);
+      expect(pagesElement.innerHTML).toContain(
+        `${currBook.pagesRead} / ${currBook.totalPages}`
+      );
+      expect(progress).toBe(progress);
+    });
+  });
+
   it('SnapShot', () => {
     const bookItem = render(<BookItem book={book} />);
     expect(bookItem).toMatchSnapshot();
@@ -53,20 +78,22 @@ describe('Book Item', () => {
     bookArray.forEach((currBook) => {
       render(<BookItem book={currBook} />);
 
-      const percentRead = `${
-        parseFloat((currBook.pagesRead / currBook.totalPages).toFixed(4)) * 100
-      }%`;
+      const percentRead = `${(
+        (currBook.pagesRead / currBook.totalPages) *
+        100
+      ).toFixed(2)}%`;
       const progressbar = screen.getByText(percentRead);
 
       expect(progressbar.innerHTML).toContain(percentRead);
       expect(progressbar.innerHTML).toContain(`style="width: ${percentRead};`);
     });
   });
-  it.todo('Multiple books', () => {});
 
-  it.todo('User allowed to easlity increases Pages Read', () => {});
+  // Do => 11/22/2022
+  it.todo('User allowed to quickly increases Pages Read', () => {});
   it.todo('Progress Bar Changes as Pages Read / Total Pages Change', () => {});
 
+  // Do => 11/23/2022 - 11/24/2022
   it.todo('Delete Button deletes todo', () => {});
   it.todo('Modal for Edit Book', () => {});
   it.todo('Edit Todo Works', () => {});

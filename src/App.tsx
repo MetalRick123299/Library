@@ -4,7 +4,7 @@ import BookItem, { IBookItem } from './BookItem';
 const book: IBookItem = {
   title: 'Harry Potter',
   author: 'J.K Rowling',
-  pagesRead: 45,
+  pagesRead: 256,
   totalPages: 586,
 };
 
@@ -13,7 +13,7 @@ function App() {
     <div className="min-h-full text-white bg-primary-bg">
       {/* ISSUE-1: Navbar is ugly */}
       {/* ISSUE-1: Navbar doesn't work on mobile */}
-      <nav className="bg-primary-nav h-24 grid grid-cols-3 place-items-center fixed inset-0">
+      <nav className="bg-primary-nav h-24 grid grid-cols-3 place-items-center fixed inset-0 z-10">
         <h1 className="text-4xl">Library</h1>
         <button
           type="button"
@@ -37,10 +37,10 @@ function App() {
       </nav>
       {/* ISSUE-1 Area End */}
       <div className="pt-28 flex gap-10 flex-wrap justify-center items-center">
+        <BookItem book={{ ...book, pagesRead: 0 }} />
         <BookItem book={book} />
         <BookItem book={book} />
-        <BookItem book={book} />
-        <BookItem book={book} />
+        <BookItem book={{ ...book, pagesRead: book.totalPages }} />
         <BookItem book={book} />
       </div>
     </div>

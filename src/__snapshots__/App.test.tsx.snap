@@ -9,7 +9,7 @@ exports[`Main App > Snap Shot 1`] = `
         class="min-h-full text-white bg-primary-bg"
       >
         <nav
-          class="bg-primary-nav h-24 grid grid-cols-3 place-items-center fixed inset-0"
+          class="bg-primary-nav h-24 grid grid-cols-3 place-items-center fixed inset-0 z-10"
         >
           <h1
             class="text-4xl"
@@ -63,19 +63,49 @@ exports[`Main App > Snap Shot 1`] = `
             <span
               class=""
             >
-              45
+              0
                / 
               586
             </span>
             <div
-              class="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+              class="flex w-full items-center justify-between"
             >
-              7.68
-              %
+              <svg
+                aria-hidden="true"
+                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  fill-rule="evenodd"
+                />
+              </svg>
               <div
-                class="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
-                style="width: 7.68%;"
-              />
+                class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+              >
+                0.00
+                %
+                <div
+                  class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
+                  style="width: 0.00%;"
+                />
+              </div>
+              <svg
+                aria-hidden="true"
+                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </div>
             <button
               class="bg-red-500 self-stretch rounded-lg p-1"
@@ -100,19 +130,49 @@ exports[`Main App > Snap Shot 1`] = `
             <span
               class=""
             >
-              45
+              256
                / 
               586
             </span>
             <div
-              class="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+              class="flex w-full items-center justify-between"
             >
-              7.68
-              %
+              <svg
+                aria-hidden="true"
+                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  fill-rule="evenodd"
+                />
+              </svg>
               <div
-                class="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
-                style="width: 7.68%;"
-              />
+                class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+              >
+                43.69
+                %
+                <div
+                  class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
+                  style="width: 43.69%;"
+                />
+              </div>
+              <svg
+                aria-hidden="true"
+                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </div>
             <button
               class="bg-red-500 self-stretch rounded-lg p-1"
@@ -137,19 +197,49 @@ exports[`Main App > Snap Shot 1`] = `
             <span
               class=""
             >
-              45
+              256
                / 
               586
             </span>
             <div
-              class="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+              class="flex w-full items-center justify-between"
             >
-              7.68
-              %
+              <svg
+                aria-hidden="true"
+                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  fill-rule="evenodd"
+                />
+              </svg>
               <div
-                class="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
-                style="width: 7.68%;"
-              />
+                class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+              >
+                43.69
+                %
+                <div
+                  class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
+                  style="width: 43.69%;"
+                />
+              </div>
+              <svg
+                aria-hidden="true"
+                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </div>
             <button
               class="bg-red-500 self-stretch rounded-lg p-1"
@@ -174,19 +264,49 @@ exports[`Main App > Snap Shot 1`] = `
             <span
               class=""
             >
-              45
+              586
                / 
               586
             </span>
             <div
-              class="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+              class="flex w-full items-center justify-between"
             >
-              7.68
-              %
+              <svg
+                aria-hidden="true"
+                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  fill-rule="evenodd"
+                />
+              </svg>
               <div
-                class="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
-                style="width: 7.68%;"
-              />
+                class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+              >
+                100.00
+                %
+                <div
+                  class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
+                  style="width: 100.00%;"
+                />
+              </div>
+              <svg
+                aria-hidden="true"
+                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </div>
             <button
               class="bg-red-500 self-stretch rounded-lg p-1"
@@ -211,19 +331,49 @@ exports[`Main App > Snap Shot 1`] = `
             <span
               class=""
             >
-              45
+              256
                / 
               586
             </span>
             <div
-              class="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+              class="flex w-full items-center justify-between"
             >
-              7.68
-              %
+              <svg
+                aria-hidden="true"
+                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  fill-rule="evenodd"
+                />
+              </svg>
               <div
-                class="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
-                style="width: 7.68%;"
-              />
+                class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+              >
+                43.69
+                %
+                <div
+                  class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
+                  style="width: 43.69%;"
+                />
+              </div>
+              <svg
+                aria-hidden="true"
+                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </div>
             <button
               class="bg-red-500 self-stretch rounded-lg p-1"
@@ -241,7 +391,7 @@ exports[`Main App > Snap Shot 1`] = `
       class="min-h-full text-white bg-primary-bg"
     >
       <nav
-        class="bg-primary-nav h-24 grid grid-cols-3 place-items-center fixed inset-0"
+        class="bg-primary-nav h-24 grid grid-cols-3 place-items-center fixed inset-0 z-10"
       >
         <h1
           class="text-4xl"
@@ -295,19 +445,49 @@ exports[`Main App > Snap Shot 1`] = `
           <span
             class=""
           >
-            45
+            0
              / 
             586
           </span>
           <div
-            class="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+            class="flex w-full items-center justify-between"
           >
-            7.68
-            %
+            <svg
+              aria-hidden="true"
+              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
             <div
-              class="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
-              style="width: 7.68%;"
-            />
+              class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+            >
+              0.00
+              %
+              <div
+                class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
+                style="width: 0.00%;"
+              />
+            </div>
+            <svg
+              aria-hidden="true"
+              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
           </div>
           <button
             class="bg-red-500 self-stretch rounded-lg p-1"
@@ -332,19 +512,49 @@ exports[`Main App > Snap Shot 1`] = `
           <span
             class=""
           >
-            45
+            256
              / 
             586
           </span>
           <div
-            class="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+            class="flex w-full items-center justify-between"
           >
-            7.68
-            %
+            <svg
+              aria-hidden="true"
+              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
             <div
-              class="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
-              style="width: 7.68%;"
-            />
+              class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+            >
+              43.69
+              %
+              <div
+                class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
+                style="width: 43.69%;"
+              />
+            </div>
+            <svg
+              aria-hidden="true"
+              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
           </div>
           <button
             class="bg-red-500 self-stretch rounded-lg p-1"
@@ -369,19 +579,49 @@ exports[`Main App > Snap Shot 1`] = `
           <span
             class=""
           >
-            45
+            256
              / 
             586
           </span>
           <div
-            class="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+            class="flex w-full items-center justify-between"
           >
-            7.68
-            %
+            <svg
+              aria-hidden="true"
+              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
             <div
-              class="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
-              style="width: 7.68%;"
-            />
+              class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+            >
+              43.69
+              %
+              <div
+                class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
+                style="width: 43.69%;"
+              />
+            </div>
+            <svg
+              aria-hidden="true"
+              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
           </div>
           <button
             class="bg-red-500 self-stretch rounded-lg p-1"
@@ -406,19 +646,49 @@ exports[`Main App > Snap Shot 1`] = `
           <span
             class=""
           >
-            45
+            586
              / 
             586
           </span>
           <div
-            class="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+            class="flex w-full items-center justify-between"
           >
-            7.68
-            %
+            <svg
+              aria-hidden="true"
+              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
             <div
-              class="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
-              style="width: 7.68%;"
-            />
+              class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+            >
+              100.00
+              %
+              <div
+                class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
+                style="width: 100.00%;"
+              />
+            </div>
+            <svg
+              aria-hidden="true"
+              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
           </div>
           <button
             class="bg-red-500 self-stretch rounded-lg p-1"
@@ -443,19 +713,49 @@ exports[`Main App > Snap Shot 1`] = `
           <span
             class=""
           >
-            45
+            256
              / 
             586
           </span>
           <div
-            class="self-stretch rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+            class="flex w-full items-center justify-between"
           >
-            7.68
-            %
+            <svg
+              aria-hidden="true"
+              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
             <div
-              class="h-full bg-primary-bg p-1 absolute inset-0 -z-[1]"
-              style="width: 7.68%;"
-            />
+              class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+            >
+              43.69
+              %
+              <div
+                class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
+                style="width: 43.69%;"
+              />
+            </div>
+            <svg
+              aria-hidden="true"
+              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
           </div>
           <button
             class="bg-red-500 self-stretch rounded-lg p-1"
