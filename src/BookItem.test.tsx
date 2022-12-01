@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import BookItem, { IBookItem } from './BookItem';
 
 describe('Book Item', () => {
@@ -43,7 +43,6 @@ describe('Book Item', () => {
     expect(progress).toBe(progress);
     expect(deleteButton).toBe(deleteButton);
   });
-
   it('Multiple books', () => {
     bookArray.forEach((currBook) => {
       render(<BookItem book={currBook} />);
@@ -88,13 +87,75 @@ describe('Book Item', () => {
       expect(progressbar.innerHTML).toContain(`style="width: ${percentRead};`);
     });
   });
+  // Do => 11/26/2022
+  it('Progress Bar Click', () => {
+    render(<BookItem book={book} />);
+    const pagesElement = screen.getByText(
+      `${book.pagesRead} / ${book.totalPages}`
+    );
+    const upButton = screen.getByRole('button', { name: 'Up Arrow' });
+    const downButton = screen.getByRole('button', { name: 'Down Arrow' });
+    expect(pagesElement.innerHTML).toBe('45 / 586');
+    fireEvent.click(upButton);
+    expect(pagesElement.innerHTML).toBe('46 / 586');
 
-  // Do => 11/22/2022
-  it.todo('User allowed to quickly increases Pages Read', () => {});
-  it.todo('Progress Bar Changes as Pages Read / Total Pages Change', () => {});
+    fireEvent.click(downButton);
+    expect(pagesElement.innerHTML).toBe('45 / 586');
 
-  // Do => 11/23/2022 - 11/24/2022
-  it.todo('Delete Button deletes todo', () => {});
+    fireEvent.click(downButton);
+    fireEvent.click(downButton);
+    fireEvent.click(upButton);
+    expect(pagesElement.innerHTML).toBe('44 / 586');
+  });
+  it.todo('Progress Bar Hold and Limit Holds (USE CYPRESS)', () => {
+    // Hold Up for 3 seconds
+    // Check if current pages read = pagesRead + 40
+    // Hold Down for 3 seconds
+    // Check if current pages read = pagesRead
+    // Hold Up for 6 seconds
+    // Check if current pages read = pagesRead + 80
+  });
+  it('Does not pass limits less than 0 CLICK ONLY', () => {
+    render(<BookItem book={{ ...book, pagesRead: 0 }} />);
+    const pagesElement = screen.getByText(`${0} / ${book.totalPages}`);
+    const downButton = screen.getByRole('button', { name: 'Down Arrow' });
+    expect(pagesElement.innerHTML).toBe('0 / 586');
+    fireEvent.click(downButton);
+    expect(pagesElement.innerHTML).toBe('0 / 586');
+  });
+  it('Does not pass limits greater than totalPages CLICK ONLY', () => {
+    render(<BookItem book={{ ...book, pagesRead: book.totalPages }} />);
+    const pagesElement = screen.getByText(
+      `${book.totalPages} / ${book.totalPages}`
+    );
+    const upButton = screen.getByRole('button', { name: 'Up Arrow' });
+    expect(pagesElement.innerHTML).toBe('586 / 586');
+    fireEvent.click(upButton);
+    expect(pagesElement.innerHTML).toBe('586 / 586');
+  });
+
+  // Do => 11/29/22
+  it.todo('Delete Button deletes book', () => {
+    render(<BookItem book={book} />);
+
+    let title = screen.queryByRole('heading', { level: 2, name: book.title });
+    const deleteButton = screen.getByRole('button', { name: 'Delete' });
+
+    expect(title?.innerHTML).toBe(book.title);
+    expect(deleteButton).toBe(deleteButton);
+
+    fireEvent.click(deleteButton);
+
+    title = screen.queryByRole('heading', { level: 2, name: book.title });
+    const newDeleteButton = screen.queryByRole('button', { name: 'Delete' });
+
+    expect(title).toBe(null);
+    expect(newDeleteButton).toBe(null);
+  });
+
+  // Update Tests When Firebase or Adding Books is Implemented
+
+  // Do => 12/01/22
   it.todo('Modal for Edit Book', () => {});
   it.todo('Edit Todo Works', () => {});
 });

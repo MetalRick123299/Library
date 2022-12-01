@@ -8,8 +8,108 @@ exports[`Main App > Snap Shot 1`] = `
       <div
         class="min-h-full text-white bg-primary-bg"
       >
+        <div
+          aria-hidden="true"
+          class="fixed flex flex-col justify-center items-center h-screen w-screen bg-black/60 z-10 text-xl transition-all scale-0"
+        >
+          <form
+            action=""
+            aria-label="Add Book Form"
+            class="flex flex-col items-center gap-3 bg-primary-bg p-5 rounded-xl border-primary-nav border-8"
+          >
+            <label
+              class=""
+            >
+              Search Book
+              <input
+                class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+                name="search Book"
+                type="text"
+              />
+            </label>
+            <div
+              class="text-2xl -mb-3 font-semibold"
+            >
+              OR
+            </div>
+            <label
+              class=""
+            >
+              Title
+              <input
+                class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+                name="title"
+                required=""
+                type="text"
+                value=""
+              />
+            </label>
+            <label
+              class=""
+            >
+              Author
+              <input
+                class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+                name="author"
+                required=""
+                type="text"
+                value=""
+              />
+            </label>
+            <label
+              class=""
+            >
+              Pages Read
+              <input
+                class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+                name="pages Read"
+                required=""
+                type="number"
+                value="0"
+              />
+            </label>
+            <label
+              class=""
+            >
+              Total Pages
+              <input
+                class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+                name="total Pages"
+                required=""
+                type="number"
+                value="0"
+              />
+            </label>
+            <div
+              class="flex items-start gap-3 bg-primary-item p-3 rounded-xl"
+            >
+              <button
+                aria-label="Add Book Submit"
+                class=""
+                type="submit"
+              >
+                Add Book
+              </button>
+              <svg
+                aria-hidden="false"
+                aria-label="Close Form Button"
+                class="btn inline !h-7"
+                fill="currentColor"
+                role="button"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </form>
+        </div>
         <nav
-          class="bg-primary-nav h-24 grid grid-cols-3 place-items-center fixed inset-0 z-10"
+          class="bg-primary-nav h-24 grid grid-cols-3 place-items-center fixed inset-0 z-[2]"
         >
           <h1
             class="text-4xl"
@@ -17,7 +117,7 @@ exports[`Main App > Snap Shot 1`] = `
             Library
           </h1>
           <button
-            class="mx-auto text-3xl border-2 border-primary-bg px-6 py-3 rounded-full shadow-xl active:shadow-none active:translate-y-1 transition-all"
+            class="mx-auto text-3xl border-2 border-primary-bg px-6 py-3 rounded-full shadow-xl active:shadow-none active:translate-y-1 transition-all whitespace-nowrap"
             type="button"
           >
             Add Book
@@ -53,12 +153,83 @@ exports[`Main App > Snap Shot 1`] = `
             <h2
               class=""
             >
-              Harry Potter
+              Book Title 1
             </h2>
             <span
               class=""
             >
-              J.K Rowling
+              Maybe JK
+            </span>
+            <span
+              class=""
+            >
+              256
+               / 
+              586
+            </span>
+            <div
+              class="flex w-full items-center justify-between"
+            >
+              <svg
+                aria-hidden="false"
+                aria-label="Down Arrow"
+                class="btn"
+                fill="currentColor"
+                role="button"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <div
+                class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+              >
+                43.69
+                %
+                <div
+                  class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
+                  style="width: 43.69%;"
+                />
+              </div>
+              <svg
+                aria-hidden="false"
+                aria-label="Up Arrow"
+                class="btn"
+                fill="currentColor"
+                role="button"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <button
+              class="bg-red-500 self-stretch rounded-lg p-1"
+              type="button"
+            >
+              Delete
+            </button>
+          </div>
+          <div
+            class="bg-primary-item flex flex-col items-center gap-3 p-5 rounded-xl w-64 text-2xl"
+          >
+            <h2
+              class=""
+            >
+              Book Title 2
+            </h2>
+            <span
+              class=""
+            >
+              Maybe JK
             </span>
             <span
               class=""
@@ -71,9 +242,11 @@ exports[`Main App > Snap Shot 1`] = `
               class="flex w-full items-center justify-between"
             >
               <svg
-                aria-hidden="true"
-                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+                aria-hidden="false"
+                aria-label="Down Arrow"
+                class="btn"
                 fill="currentColor"
+                role="button"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -94,9 +267,11 @@ exports[`Main App > Snap Shot 1`] = `
                 />
               </div>
               <svg
-                aria-hidden="true"
-                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+                aria-hidden="false"
+                aria-label="Up Arrow"
+                class="btn"
                 fill="currentColor"
+                role="button"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -120,12 +295,12 @@ exports[`Main App > Snap Shot 1`] = `
             <h2
               class=""
             >
-              Harry Potter
+              Book Title 3
             </h2>
             <span
               class=""
             >
-              J.K Rowling
+              Maybe JK
             </span>
             <span
               class=""
@@ -138,9 +313,11 @@ exports[`Main App > Snap Shot 1`] = `
               class="flex w-full items-center justify-between"
             >
               <svg
-                aria-hidden="true"
-                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+                aria-hidden="false"
+                aria-label="Down Arrow"
+                class="btn"
                 fill="currentColor"
+                role="button"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -161,9 +338,11 @@ exports[`Main App > Snap Shot 1`] = `
                 />
               </div>
               <svg
-                aria-hidden="true"
-                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+                aria-hidden="false"
+                aria-label="Up Arrow"
+                class="btn"
                 fill="currentColor"
+                role="button"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -187,79 +366,12 @@ exports[`Main App > Snap Shot 1`] = `
             <h2
               class=""
             >
-              Harry Potter
+              Book Title 4
             </h2>
             <span
               class=""
             >
-              J.K Rowling
-            </span>
-            <span
-              class=""
-            >
-              256
-               / 
-              586
-            </span>
-            <div
-              class="flex w-full items-center justify-between"
-            >
-              <svg
-                aria-hidden="true"
-                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-              <div
-                class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
-              >
-                43.69
-                %
-                <div
-                  class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
-                  style="width: 43.69%;"
-                />
-              </div>
-              <svg
-                aria-hidden="true"
-                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <button
-              class="bg-red-500 self-stretch rounded-lg p-1"
-              type="button"
-            >
-              Delete
-            </button>
-          </div>
-          <div
-            class="bg-primary-item flex flex-col items-center gap-3 p-5 rounded-xl w-64 text-2xl"
-          >
-            <h2
-              class=""
-            >
-              Harry Potter
-            </h2>
-            <span
-              class=""
-            >
-              J.K Rowling
+              Maybe JK
             </span>
             <span
               class=""
@@ -272,9 +384,11 @@ exports[`Main App > Snap Shot 1`] = `
               class="flex w-full items-center justify-between"
             >
               <svg
-                aria-hidden="true"
-                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+                aria-hidden="false"
+                aria-label="Down Arrow"
+                class="btn"
                 fill="currentColor"
+                role="button"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -295,9 +409,11 @@ exports[`Main App > Snap Shot 1`] = `
                 />
               </div>
               <svg
-                aria-hidden="true"
-                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+                aria-hidden="false"
+                aria-label="Up Arrow"
+                class="btn"
                 fill="currentColor"
+                role="button"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -321,12 +437,12 @@ exports[`Main App > Snap Shot 1`] = `
             <h2
               class=""
             >
-              Harry Potter
+              Book Title 5
             </h2>
             <span
               class=""
             >
-              J.K Rowling
+              Maybe JK
             </span>
             <span
               class=""
@@ -339,9 +455,11 @@ exports[`Main App > Snap Shot 1`] = `
               class="flex w-full items-center justify-between"
             >
               <svg
-                aria-hidden="true"
-                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+                aria-hidden="false"
+                aria-label="Down Arrow"
+                class="btn"
                 fill="currentColor"
+                role="button"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -362,9 +480,11 @@ exports[`Main App > Snap Shot 1`] = `
                 />
               </div>
               <svg
-                aria-hidden="true"
-                class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+                aria-hidden="false"
+                aria-label="Up Arrow"
+                class="btn"
                 fill="currentColor"
+                role="button"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -390,8 +510,108 @@ exports[`Main App > Snap Shot 1`] = `
     <div
       class="min-h-full text-white bg-primary-bg"
     >
+      <div
+        aria-hidden="true"
+        class="fixed flex flex-col justify-center items-center h-screen w-screen bg-black/60 z-10 text-xl transition-all scale-0"
+      >
+        <form
+          action=""
+          aria-label="Add Book Form"
+          class="flex flex-col items-center gap-3 bg-primary-bg p-5 rounded-xl border-primary-nav border-8"
+        >
+          <label
+            class=""
+          >
+            Search Book
+            <input
+              class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+              name="search Book"
+              type="text"
+            />
+          </label>
+          <div
+            class="text-2xl -mb-3 font-semibold"
+          >
+            OR
+          </div>
+          <label
+            class=""
+          >
+            Title
+            <input
+              class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+              name="title"
+              required=""
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class=""
+          >
+            Author
+            <input
+              class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+              name="author"
+              required=""
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class=""
+          >
+            Pages Read
+            <input
+              class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+              name="pages Read"
+              required=""
+              type="number"
+              value="0"
+            />
+          </label>
+          <label
+            class=""
+          >
+            Total Pages
+            <input
+              class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+              name="total Pages"
+              required=""
+              type="number"
+              value="0"
+            />
+          </label>
+          <div
+            class="flex items-start gap-3 bg-primary-item p-3 rounded-xl"
+          >
+            <button
+              aria-label="Add Book Submit"
+              class=""
+              type="submit"
+            >
+              Add Book
+            </button>
+            <svg
+              aria-hidden="false"
+              aria-label="Close Form Button"
+              class="btn inline !h-7"
+              fill="currentColor"
+              role="button"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </form>
+      </div>
       <nav
-        class="bg-primary-nav h-24 grid grid-cols-3 place-items-center fixed inset-0 z-10"
+        class="bg-primary-nav h-24 grid grid-cols-3 place-items-center fixed inset-0 z-[2]"
       >
         <h1
           class="text-4xl"
@@ -399,7 +619,7 @@ exports[`Main App > Snap Shot 1`] = `
           Library
         </h1>
         <button
-          class="mx-auto text-3xl border-2 border-primary-bg px-6 py-3 rounded-full shadow-xl active:shadow-none active:translate-y-1 transition-all"
+          class="mx-auto text-3xl border-2 border-primary-bg px-6 py-3 rounded-full shadow-xl active:shadow-none active:translate-y-1 transition-all whitespace-nowrap"
           type="button"
         >
           Add Book
@@ -435,12 +655,83 @@ exports[`Main App > Snap Shot 1`] = `
           <h2
             class=""
           >
-            Harry Potter
+            Book Title 1
           </h2>
           <span
             class=""
           >
-            J.K Rowling
+            Maybe JK
+          </span>
+          <span
+            class=""
+          >
+            256
+             / 
+            586
+          </span>
+          <div
+            class="flex w-full items-center justify-between"
+          >
+            <svg
+              aria-hidden="false"
+              aria-label="Down Arrow"
+              class="btn"
+              fill="currentColor"
+              role="button"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <div
+              class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
+            >
+              43.69
+              %
+              <div
+                class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
+                style="width: 43.69%;"
+              />
+            </div>
+            <svg
+              aria-hidden="false"
+              aria-label="Up Arrow"
+              class="btn"
+              fill="currentColor"
+              role="button"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <button
+            class="bg-red-500 self-stretch rounded-lg p-1"
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+        <div
+          class="bg-primary-item flex flex-col items-center gap-3 p-5 rounded-xl w-64 text-2xl"
+        >
+          <h2
+            class=""
+          >
+            Book Title 2
+          </h2>
+          <span
+            class=""
+          >
+            Maybe JK
           </span>
           <span
             class=""
@@ -453,9 +744,11 @@ exports[`Main App > Snap Shot 1`] = `
             class="flex w-full items-center justify-between"
           >
             <svg
-              aria-hidden="true"
-              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+              aria-hidden="false"
+              aria-label="Down Arrow"
+              class="btn"
               fill="currentColor"
+              role="button"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -476,9 +769,11 @@ exports[`Main App > Snap Shot 1`] = `
               />
             </div>
             <svg
-              aria-hidden="true"
-              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+              aria-hidden="false"
+              aria-label="Up Arrow"
+              class="btn"
               fill="currentColor"
+              role="button"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -502,12 +797,12 @@ exports[`Main App > Snap Shot 1`] = `
           <h2
             class=""
           >
-            Harry Potter
+            Book Title 3
           </h2>
           <span
             class=""
           >
-            J.K Rowling
+            Maybe JK
           </span>
           <span
             class=""
@@ -520,9 +815,11 @@ exports[`Main App > Snap Shot 1`] = `
             class="flex w-full items-center justify-between"
           >
             <svg
-              aria-hidden="true"
-              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+              aria-hidden="false"
+              aria-label="Down Arrow"
+              class="btn"
               fill="currentColor"
+              role="button"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -543,9 +840,11 @@ exports[`Main App > Snap Shot 1`] = `
               />
             </div>
             <svg
-              aria-hidden="true"
-              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+              aria-hidden="false"
+              aria-label="Up Arrow"
+              class="btn"
               fill="currentColor"
+              role="button"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -569,79 +868,12 @@ exports[`Main App > Snap Shot 1`] = `
           <h2
             class=""
           >
-            Harry Potter
+            Book Title 4
           </h2>
           <span
             class=""
           >
-            J.K Rowling
-          </span>
-          <span
-            class=""
-          >
-            256
-             / 
-            586
-          </span>
-          <div
-            class="flex w-full items-center justify-between"
-          >
-            <svg
-              aria-hidden="true"
-              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                fill-rule="evenodd"
-              />
-            </svg>
-            <div
-              class="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]"
-            >
-              43.69
-              %
-              <div
-                class="h-full bg-primary-bg absolute inset-0 -z-[1] transition-all max-w-full"
-                style="width: 43.69%;"
-              />
-            </div>
-            <svg
-              aria-hidden="true"
-              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </div>
-          <button
-            class="bg-red-500 self-stretch rounded-lg p-1"
-            type="button"
-          >
-            Delete
-          </button>
-        </div>
-        <div
-          class="bg-primary-item flex flex-col items-center gap-3 p-5 rounded-xl w-64 text-2xl"
-        >
-          <h2
-            class=""
-          >
-            Harry Potter
-          </h2>
-          <span
-            class=""
-          >
-            J.K Rowling
+            Maybe JK
           </span>
           <span
             class=""
@@ -654,9 +886,11 @@ exports[`Main App > Snap Shot 1`] = `
             class="flex w-full items-center justify-between"
           >
             <svg
-              aria-hidden="true"
-              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+              aria-hidden="false"
+              aria-label="Down Arrow"
+              class="btn"
               fill="currentColor"
+              role="button"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -677,9 +911,11 @@ exports[`Main App > Snap Shot 1`] = `
               />
             </div>
             <svg
-              aria-hidden="true"
-              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+              aria-hidden="false"
+              aria-label="Up Arrow"
+              class="btn"
               fill="currentColor"
+              role="button"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -703,12 +939,12 @@ exports[`Main App > Snap Shot 1`] = `
           <h2
             class=""
           >
-            Harry Potter
+            Book Title 5
           </h2>
           <span
             class=""
           >
-            J.K Rowling
+            Maybe JK
           </span>
           <span
             class=""
@@ -721,9 +957,11 @@ exports[`Main App > Snap Shot 1`] = `
             class="flex w-full items-center justify-between"
           >
             <svg
-              aria-hidden="true"
-              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+              aria-hidden="false"
+              aria-label="Down Arrow"
+              class="btn"
               fill="currentColor"
+              role="button"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -744,9 +982,11 @@ exports[`Main App > Snap Shot 1`] = `
               />
             </div>
             <svg
-              aria-hidden="true"
-              class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+              aria-hidden="false"
+              aria-label="Up Arrow"
+              class="btn"
               fill="currentColor"
+              role="button"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >

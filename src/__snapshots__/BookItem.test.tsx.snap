@@ -29,9 +29,11 @@ exports[`Book Item > SnapShot 1`] = `
           class="flex w-full items-center justify-between"
         >
           <svg
-            aria-hidden="true"
-            class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+            aria-hidden="false"
+            aria-label="Down Arrow"
+            class="btn"
             fill="currentColor"
+            role="button"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -52,9 +54,11 @@ exports[`Book Item > SnapShot 1`] = `
             />
           </div>
           <svg
-            aria-hidden="true"
-            class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+            aria-hidden="false"
+            aria-label="Up Arrow"
+            class="btn"
             fill="currentColor"
+            role="button"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -99,9 +103,11 @@ exports[`Book Item > SnapShot 1`] = `
         class="flex w-full items-center justify-between"
       >
         <svg
-          aria-hidden="true"
-          class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+          aria-hidden="false"
+          aria-label="Down Arrow"
+          class="btn"
           fill="currentColor"
+          role="button"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -122,9 +128,11 @@ exports[`Book Item > SnapShot 1`] = `
           />
         </div>
         <svg
-          aria-hidden="true"
-          class="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+          aria-hidden="false"
+          aria-label="Up Arrow"
+          class="btn"
           fill="currentColor"
+          role="button"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >

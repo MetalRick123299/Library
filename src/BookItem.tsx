@@ -1,5 +1,4 @@
-import React, { useRef, useState } from 'react';
-import clsx from 'clsx';
+import React, { useRef, useState, Dispatch, SetStateAction } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid/esm';
 
 export type IBookItem = {
@@ -9,42 +8,50 @@ export type IBookItem = {
   totalPages: number;
 };
 
+interface IBookItemProps {
+  book: IBookItem;
+  setBookList: Dispatch<SetStateAction<IBookItem[]>>;
+  bookList: IBookItem[];
+}
+
 // TODOs
 // Add Fast Book Page movement
 // remove selecting outside elements while holding / spam clicking
 
-export default function BookItem({ book }: { book: IBookItem }) {
+export default function BookItem({
+  book,
+  setBookList,
+  bookList,
+}: IBookItemProps) {
   const [bookDetails, setBookDetails] = useState(book);
   const { title, author, pagesRead, totalPages } = bookDetails;
   const varyRef = useRef<NodeJS.Timer | null>(null);
+  let timerID: NodeJS.Timer;
 
   const startVaryPagesRead = (dir: 'down' | 'up') => {
     if (varyRef.current) return;
 
-    if (dir === 'up') {
-      varyRef.current = setInterval(() => {
-        if (
-          bookDetails.pagesRead + 1 < 0 ||
-          bookDetails.pagesRead + 1 > bookDetails.totalPages
-        )
-          return;
-
-        setBookDetails((prev) => ({ ...prev, pagesRead: prev.pagesRead + 1 }));
-      }, 75);
-    } else {
-      varyRef.current = setInterval(() => {
-        if (
-          bookDetails.pagesRead - 1 < 0 ||
-          bookDetails.pagesRead - 1 > bookDetails.totalPages
-        )
-          return;
-
-        setBookDetails((prev) => ({ ...prev, pagesRead: prev.pagesRead - 1 }));
-      }, 75);
-    }
+    timerID = setTimeout(() => {
+      if (dir === 'up') {
+        varyRef.current = setInterval(() => {
+          setBookDetails((prev) => ({
+            ...prev,
+            pagesRead: prev.pagesRead + 1,
+          }));
+        }, 75);
+      } else {
+        varyRef.current = setInterval(() => {
+          setBookDetails((prev) => ({
+            ...prev,
+            pagesRead: prev.pagesRead - 1,
+          }));
+        }, 75);
+      }
+    }, 300);
   };
 
   const stopVaryPagesRead = () => {
+    clearTimeout(timerID);
     if (varyRef.current) {
       clearInterval(varyRef.current);
       varyRef.current = null;
@@ -52,9 +59,52 @@ export default function BookItem({ book }: { book: IBookItem }) {
       if (bookDetails.pagesRead / book.totalPages > 1) {
         setBookDetails((prev) => ({ ...prev, pagesRead: prev.totalPages }));
       }
+      if (bookDetails.pagesRead < 0) {
+        setBookDetails((prev) => ({ ...prev, pagesRead: 0 }));
+      }
 
       // Add API Call to PUT new PageRead
     }
+  };
+
+  const handleClick = (dir: 'up' | 'down') => {
+    if (dir === 'up') {
+      if (pagesRead >= totalPages) {
+        setBookDetails((prev) => ({
+          ...prev,
+          pagesRead: prev.totalPages,
+        }));
+        return;
+      }
+      setBookDetails((prev) => ({
+        ...prev,
+        pagesRead: prev.pagesRead + 1,
+      }));
+    } else {
+      if (pagesRead <= 0) {
+        setBookDetails((prev) => ({
+          ...prev,
+          pagesRead: 0,
+        }));
+        return;
+      }
+      setBookDetails((prev) => ({
+        ...prev,
+        pagesRead: prev.pagesRead - 1,
+      }));
+    }
+  };
+
+  const handleDelete = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const parent = e.currentTarget.parentElement;
+    const currtitle = parent?.firstElementChild?.innerHTML;
+    const idx = bookList.findIndex((ele) => ele.title === currtitle);
+
+    setBookList((prev) => {
+      const newArr = [...prev];
+      newArr.splice(idx, 1);
+      return newArr;
+    });
   };
 
   return (
@@ -67,10 +117,14 @@ export default function BookItem({ book }: { book: IBookItem }) {
 
       <div className="flex w-full items-center justify-between">
         <ChevronDownIcon
-          className="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95"
+          aria-hidden="false"
+          role="button"
+          aria-label="Down Arrow"
+          className="btn"
           onMouseDown={() => startVaryPagesRead('down')}
           onMouseUp={() => stopVaryPagesRead()}
           onMouseLeave={() => stopVaryPagesRead()}
+          onClick={() => handleClick('down')}
         />
 
         <div className="w-8/12 rounded-lg border-2 border-primary-bg text-center relative z-[1]">
@@ -84,14 +138,22 @@ export default function BookItem({ book }: { book: IBookItem }) {
         </div>
 
         <ChevronUpIcon
-          className="h-8 cursor-pointer transition-all hover:scale-125 active:scale-95 z-[1]"
+          aria-hidden="false"
+          role="button"
+          aria-label="Up Arrow"
+          className="btn"
           onMouseDown={() => startVaryPagesRead('up')}
           onMouseUp={() => stopVaryPagesRead()}
           onMouseLeave={() => stopVaryPagesRead()}
+          onClick={() => handleClick('up')}
         />
       </div>
 
-      <button type="button" className="bg-red-500 self-stretch rounded-lg p-1">
+      <button
+        type="button"
+        className="bg-red-500 self-stretch rounded-lg p-1"
+        onClick={handleDelete}
+      >
         Delete
       </button>
     </div>

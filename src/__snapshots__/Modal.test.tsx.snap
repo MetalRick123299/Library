@@ -1,0 +1,264 @@
+// Vitest Snapshot v1
+
+exports[`Modal Tests > Modal Snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        aria-hidden="false"
+        class="fixed flex flex-col justify-center items-center h-screen w-screen bg-black/60 z-10 text-xl transition-all scale-100"
+      >
+        <form
+          action=""
+          aria-label="Add Book Form"
+          class="flex flex-col items-center gap-3 bg-primary-bg p-5 rounded-xl border-primary-nav border-8"
+        >
+          <label
+            class=""
+          >
+            Search Book
+            <input
+              class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+              name="search Book"
+              type="text"
+            />
+          </label>
+          <div
+            class="text-2xl -mb-3 font-semibold"
+          >
+            OR
+          </div>
+          <label
+            class=""
+          >
+            Title
+            <input
+              class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+              name="title"
+              required=""
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class=""
+          >
+            Author
+            <input
+              class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+              name="author"
+              required=""
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class=""
+          >
+            Pages Read
+            <input
+              class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+              name="pages Read"
+              required=""
+              type="number"
+              value="0"
+            />
+          </label>
+          <label
+            class=""
+          >
+            Total Pages
+            <input
+              class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+              name="total Pages"
+              required=""
+              type="number"
+              value="0"
+            />
+          </label>
+          <div
+            class="flex items-start gap-3 bg-primary-item p-3 rounded-xl"
+          >
+            <button
+              aria-label="Add Book Submit"
+              class=""
+              type="submit"
+            >
+              Add Book
+            </button>
+            <svg
+              aria-hidden="false"
+              aria-label="Close Form Button"
+              class="btn inline !h-7"
+              fill="currentColor"
+              role="button"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      aria-hidden="false"
+      class="fixed flex flex-col justify-center items-center h-screen w-screen bg-black/60 z-10 text-xl transition-all scale-100"
+    >
+      <form
+        action=""
+        aria-label="Add Book Form"
+        class="flex flex-col items-center gap-3 bg-primary-bg p-5 rounded-xl border-primary-nav border-8"
+      >
+        <label
+          class=""
+        >
+          Search Book
+          <input
+            class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+            name="search Book"
+            type="text"
+          />
+        </label>
+        <div
+          class="text-2xl -mb-3 font-semibold"
+        >
+          OR
+        </div>
+        <label
+          class=""
+        >
+          Title
+          <input
+            class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+            name="title"
+            required=""
+            type="text"
+            value=""
+          />
+        </label>
+        <label
+          class=""
+        >
+          Author
+          <input
+            class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+            name="author"
+            required=""
+            type="text"
+            value=""
+          />
+        </label>
+        <label
+          class=""
+        >
+          Pages Read
+          <input
+            class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+            name="pages Read"
+            required=""
+            type="number"
+            value="0"
+          />
+        </label>
+        <label
+          class=""
+        >
+          Total Pages
+          <input
+            class="bg-primary-item block rounded-md px-2 py-1 mt-1"
+            name="total Pages"
+            required=""
+            type="number"
+            value="0"
+          />
+        </label>
+        <div
+          class="flex items-start gap-3 bg-primary-item p-3 rounded-xl"
+        >
+          <button
+            aria-label="Add Book Submit"
+            class=""
+            type="submit"
+          >
+            Add Book
+          </button>
+          <svg
+            aria-hidden="false"
+            aria-label="Close Form Button"
+            class="btn inline !h-7"
+            fill="currentColor"
+            role="button"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </form>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
