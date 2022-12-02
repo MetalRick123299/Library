@@ -30,29 +30,24 @@ function App() {
         setBookList={setBookList}
         bookList={bookList}
       />
-      {/* ISSUE-1: Navbar is ugly */}
-      {/* ISSUE-1: Navbar doesn't work on mobile */}
-      <nav className="bg-primary-nav h-24 grid grid-cols-3 place-items-center fixed inset-0 z-[2]">
-        <h1 className="text-4xl">Library</h1>
+      <nav className="bg-primary-nav h-24 flex items-center fixed inset-0 z-[2]">
+        <h1 className="text-4xl mr-auto flex flex-1 justify-center">Library</h1>
         <button
           type="button"
-          className="mx-auto text-3xl border-2 border-primary-bg px-6 py-3 rounded-full shadow-xl active:shadow-none active:translate-y-1 transition-all whitespace-nowrap"
-          // onClick={() => setIsModal(true)}
-          onClick={() => console.log(bookList)}
+          className=" text-3xl border-2 border-primary-bg px-6 py-3 rounded-full shadow-xl active:shadow-none active:translate-y-1 transition-all whitespace-nowrap flex"
+          onClick={() => setIsModal(true)}
+          // onClick={() => console.log(bookList)}
         >
           Add Book
         </button>
-        <div className="flex gap-3">
-          <button type="button" className="text-4xl">
-            Sign In
-          </button>
+        <div className="gap-3 justify-center ml-auto flex flex-1 justify-self-center">
           <img
-            className="rounded-full hidden"
-            src="https://via.placeholder.com/48"
+            className="rounded-full h-10"
+            src="https://via.placeholder.com/40"
             alt="Profile"
           />
-          <button type="button" className="text-2xl hidden">
-            Sign Out
+          <button type="button" className="text-4xl hidden md:block ">
+            Sign In
           </button>
         </div>
       </nav>
