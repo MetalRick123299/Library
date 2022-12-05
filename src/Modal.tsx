@@ -1,29 +1,42 @@
 import clsx from 'clsx';
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { XCircleIcon } from '@heroicons/react/20/solid';
 import { IBookItem } from './BookItem';
 
-interface ModalProps {
-  isModal: boolean;
-  setIsModal: Dispatch<SetStateAction<boolean>>;
-  setBookList: Dispatch<SetStateAction<IBookItem[]>>;
-  bookList: IBookItem[];
-}
-
-const emptyForm: IBookItem = {
+export const emptyForm: IBookItem = {
   title: '',
   author: '',
   pagesRead: 0,
   totalPages: 0,
 };
 
+interface ModalProps {
+  isModal: boolean;
+  setIsModal: Dispatch<SetStateAction<boolean>>;
+  setBookList: Dispatch<SetStateAction<IBookItem[]>>;
+  bookList: IBookItem[];
+  initForm: IBookItem;
+}
+
 export default function Modal({
   isModal,
   setIsModal,
   setBookList,
   bookList,
+  initForm,
 }: ModalProps) {
-  const [formInputs, setFormInputs] = useState<IBookItem>(emptyForm);
+  const [formInputs, setFormInputs] = useState<IBookItem>(initForm);
+  const [isEdit, setIsEdit] = useState(false);
+
+  useEffect(() => {
+    setFormInputs(initForm);
+
+    if (initForm.title === '') {
+      setIsEdit(false);
+    } else {
+      setIsEdit(true);
+    }
+  }, [initForm]);
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const currName = e.currentTarget.name.replace(/\s/g, '');
@@ -61,7 +74,7 @@ export default function Modal({
       <form
         action=""
         className="flex flex-col items-center gap-3 bg-primary-bg p-5 rounded-xl border-primary-nav border-8"
-        aria-label="Add Book Form"
+        aria-label={`${isEdit ? 'Edit' : 'Add'} Book Form`}
         onSubmit={handleSubmit}
       >
         <label className="">
@@ -125,7 +138,7 @@ export default function Modal({
 
         <div className="flex items-start gap-3 bg-primary-item p-3 rounded-xl">
           <button type="submit" className="" aria-label="Add Book Submit">
-            Add Book
+            {`${isEdit ? 'Edit' : 'Add'} Form`}
           </button>
           <XCircleIcon
             className="btn inline !h-7"

@@ -114,7 +114,8 @@ describe('Main App', () => {
     const deleteButtons = screen.getAllByRole('button', { name: /delete/i });
     const idx = deleteButtons.findIndex(
       (item) =>
-        item.parentElement?.firstElementChild?.innerHTML === title.innerHTML
+        item.parentElement?.parentElement?.firstElementChild?.innerHTML ===
+        title.innerHTML
     );
     fireEvent.click(deleteButtons[idx]);
 

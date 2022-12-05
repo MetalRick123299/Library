@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import BookItem, { IBookItem } from './BookItem';
-import Modal from './Modal';
+import Modal, { emptyForm } from './Modal';
 
 const book: IBookItem = {
   title: 'Harry Potter',
@@ -20,8 +20,8 @@ const books: IBookItem[] = [
 
 function App() {
   const [isModal, setIsModal] = useState(false);
+  const [initForm, setInitForm] = useState(emptyForm);
   const [bookList, setBookList] = useState<IBookItem[]>(books);
-
   return (
     <div className="min-h-full text-white bg-primary-bg">
       <Modal
@@ -29,14 +29,17 @@ function App() {
         setIsModal={setIsModal}
         setBookList={setBookList}
         bookList={bookList}
+        initForm={initForm}
       />
       <nav className="bg-primary-nav h-24 flex items-center fixed inset-0 z-[2]">
         <h1 className="text-4xl mr-auto flex flex-1 justify-center">Library</h1>
         <button
           type="button"
           className=" text-3xl border-2 border-primary-bg px-6 py-3 rounded-full shadow-xl active:shadow-none active:translate-y-1 transition-all whitespace-nowrap flex"
-          onClick={() => setIsModal(true)}
-          // onClick={() => console.log(bookList)}
+          onClick={() => {
+            setInitForm(emptyForm);
+            setIsModal(true);
+          }}
         >
           Add Book
         </button>
@@ -59,6 +62,8 @@ function App() {
             book={currBook}
             setBookList={setBookList}
             bookList={bookList}
+            setInitForm={setInitForm}
+            setIsModal={setIsModal}
           />
         ))}
       </div>

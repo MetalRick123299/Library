@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Modal from './Modal';
+import Modal, { emptyForm } from './Modal';
 import { IBookItem } from './BookItem';
 
 describe('Modal Tests', () => {
@@ -18,6 +18,7 @@ describe('Modal Tests', () => {
         setIsModal={mockFunction}
         setBookList={mockFunction}
         bookList={[book]}
+        initForm={emptyForm}
       />
     );
 
@@ -42,19 +43,21 @@ describe('Modal Tests', () => {
         setIsModal={mockFunction}
         setBookList={mockFunction}
         bookList={[book]}
+        initForm={emptyForm}
       />
     );
     expect(modal).toMatchSnapshot();
   });
 
   it('Happy Path Submit', () => {});
-  it('No Pages Read more than Total Pages', () => {
+  it.only('No Pages Read more than Total Pages', () => {
     render(
       <Modal
         isModal
         setIsModal={mockFunction}
         setBookList={mockFunction}
         bookList={[book]}
+        initForm={emptyForm}
       />
     );
 

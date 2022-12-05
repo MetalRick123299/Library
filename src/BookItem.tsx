@@ -1,5 +1,9 @@
 import React, { useRef, useState, Dispatch, SetStateAction } from 'react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid/esm';
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  PencilSquareIcon,
+} from '@heroicons/react/20/solid/esm';
 
 export type IBookItem = {
   title: string;
@@ -12,6 +16,8 @@ interface IBookItemProps {
   book: IBookItem;
   setBookList: Dispatch<SetStateAction<IBookItem[]>>;
   bookList: IBookItem[];
+  setIsModal: Dispatch<SetStateAction<boolean>>;
+  setInitForm: Dispatch<SetStateAction<IBookItem>>;
 }
 
 // TODOs
@@ -22,6 +28,8 @@ export default function BookItem({
   book,
   setBookList,
   bookList,
+  setIsModal,
+  setInitForm,
 }: IBookItemProps) {
   const [bookDetails, setBookDetails] = useState(book);
   const { title, author, pagesRead, totalPages } = bookDetails;
@@ -107,6 +115,11 @@ export default function BookItem({
     });
   };
 
+  const handleEdit = () => {
+    setInitForm(bookDetails);
+    setIsModal(true);
+  };
+
   return (
     <div className="bg-primary-item flex flex-col items-center gap-3 p-5 rounded-xl w-64 text-2xl">
       <h2 className="">{title}</h2>
@@ -149,13 +162,22 @@ export default function BookItem({
         />
       </div>
 
-      <button
-        type="button"
-        className="bg-red-500 self-stretch rounded-lg p-1"
-        onClick={handleDelete}
-      >
-        Delete
-      </button>
+      <div className="flex w-full items-center gap-5 justify-evenly">
+        <PencilSquareIcon
+          role="button"
+          className="!h-10 cursor-pointer btn"
+          onClick={handleEdit}
+          aria-hidden="false"
+          aria-label="Edit Book"
+        />
+        <button
+          type="button"
+          className="bg-red-500 self-stretch rounded-lg p-1 flex-grow"
+          onClick={handleDelete}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }

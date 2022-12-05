@@ -2,6 +2,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import BookItem, { IBookItem } from './BookItem';
 
 describe('Book Item', () => {
+  const mockFn = vi.fn();
+
   const book: IBookItem = {
     title: 'Harry Potter',
     author: 'J.K Rowling',
@@ -23,7 +25,7 @@ describe('Book Item', () => {
   const bookArray = [book, book2, book3];
 
   it('BookItem Structure', () => {
-    render(<BookItem book={book} />);
+    render(<BookItem setBookList={mockFn} bookList={bookArray} book={book} />);
 
     const title = screen.getByRole('heading', { level: 2, name: book.title });
     const author = screen.getByText(book.author);
@@ -45,7 +47,9 @@ describe('Book Item', () => {
   });
   it('Multiple books', () => {
     bookArray.forEach((currBook) => {
-      render(<BookItem book={currBook} />);
+      render(
+        <BookItem setBookList={mockFn} bookList={bookArray} book={currBook} />
+      );
 
       const title = screen.getByRole('heading', {
         level: 2,
@@ -69,13 +73,17 @@ describe('Book Item', () => {
   });
 
   it('SnapShot', () => {
-    const bookItem = render(<BookItem book={book} />);
+    const bookItem = render(
+      <BookItem book={book} setBookList={mockFn} bookList={bookArray} />
+    );
     expect(bookItem).toMatchSnapshot();
   });
 
   it('Progress Bar Shows % of current book read', () => {
     bookArray.forEach((currBook) => {
-      render(<BookItem book={currBook} />);
+      render(
+        <BookItem setBookList={mockFn} bookList={bookArray} book={currBook} />
+      );
 
       const percentRead = `${(
         (currBook.pagesRead / currBook.totalPages) *
@@ -89,7 +97,7 @@ describe('Book Item', () => {
   });
   // Do => 11/26/2022
   it('Progress Bar Click', () => {
-    render(<BookItem book={book} />);
+    render(<BookItem setBookList={mockFn} bookList={bookArray} book={book} />);
     const pagesElement = screen.getByText(
       `${book.pagesRead} / ${book.totalPages}`
     );
@@ -116,7 +124,13 @@ describe('Book Item', () => {
     // Check if current pages read = pagesRead + 80
   });
   it('Does not pass limits less than 0 CLICK ONLY', () => {
-    render(<BookItem book={{ ...book, pagesRead: 0 }} />);
+    render(
+      <BookItem
+        setBookList={mockFn}
+        bookList={bookArray}
+        book={{ ...book, pagesRead: 0 }}
+      />
+    );
     const pagesElement = screen.getByText(`${0} / ${book.totalPages}`);
     const downButton = screen.getByRole('button', { name: 'Down Arrow' });
     expect(pagesElement.innerHTML).toBe('0 / 586');
@@ -124,7 +138,13 @@ describe('Book Item', () => {
     expect(pagesElement.innerHTML).toBe('0 / 586');
   });
   it('Does not pass limits greater than totalPages CLICK ONLY', () => {
-    render(<BookItem book={{ ...book, pagesRead: book.totalPages }} />);
+    render(
+      <BookItem
+        setBookList={mockFn}
+        bookList={bookArray}
+        book={{ ...book, pagesRead: book.totalPages }}
+      />
+    );
     const pagesElement = screen.getByText(
       `${book.totalPages} / ${book.totalPages}`
     );
@@ -136,7 +156,7 @@ describe('Book Item', () => {
 
   // Do => 11/29/22
   it.todo('Delete Button deletes book', () => {
-    render(<BookItem book={book} />);
+    render(<BookItem setBookList={mockFn} bookList={bookArray} book={book} />);
 
     let title = screen.queryByRole('heading', { level: 2, name: book.title });
     const deleteButton = screen.getByRole('button', { name: 'Delete' });
