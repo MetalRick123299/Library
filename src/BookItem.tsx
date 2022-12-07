@@ -4,30 +4,16 @@ import {
   ChevronUpIcon,
   PencilSquareIcon,
 } from '@heroicons/react/20/solid/esm';
-
-export type IBookItem = {
-  title: string;
-  author: string;
-  pagesRead: number;
-  totalPages: number;
-};
+import { IBookItem } from './contexts/BookList';
 
 interface IBookItemProps {
   book: IBookItem;
-  setBookList: Dispatch<SetStateAction<IBookItem[]>>;
-  bookList: IBookItem[];
   setIsModal: Dispatch<SetStateAction<boolean>>;
   setInitForm: Dispatch<SetStateAction<IBookItem>>;
 }
 
-// TODOs
-// Add Fast Book Page movement
-// remove selecting outside elements while holding / spam clicking
-
 export default function BookItem({
   book,
-  setBookList,
-  bookList,
   setIsModal,
   setInitForm,
 }: IBookItemProps) {
@@ -106,13 +92,16 @@ export default function BookItem({
   const handleDelete = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const parent = e.currentTarget.parentElement;
     const currtitle = parent?.firstElementChild?.innerHTML;
-    const idx = bookList.findIndex((ele) => ele.title === currtitle);
 
-    setBookList((prev) => {
-      const newArr = [...prev];
-      newArr.splice(idx, 1);
-      return newArr;
-    });
+    // useContext
+
+    // const idx = bookList.findIndex((ele) => ele.title === currtitle);
+
+    // setBookList((prev) => {
+    //   const newArr = [...prev];
+    //   newArr.splice(idx, 1);
+    //   return newArr;
+    // });
   };
 
   const handleEdit = () => {

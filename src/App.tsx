@@ -1,36 +1,17 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
-import BookItem, { IBookItem } from './BookItem';
+import BookItem from './BookItem';
 import Modal, { emptyForm } from './Modal';
-
-const book: IBookItem = {
-  title: 'Harry Potter',
-  author: 'Maybe JK',
-  pagesRead: 256,
-  totalPages: 586,
-};
-
-const books: IBookItem[] = [
-  { ...book, title: 'Book Title 1' },
-  { ...book, pagesRead: 0, title: 'Book Title 2' },
-  { ...book, title: 'Book Title 3' },
-  { ...book, pagesRead: book.totalPages, title: 'Book Title 4' },
-  { ...book, title: 'Book Title 5' },
-];
+import { BookListContext } from './contexts/BookList';
 
 function App() {
   const [isModal, setIsModal] = useState(false);
   const [initForm, setInitForm] = useState(emptyForm);
-  const [bookList, setBookList] = useState<IBookItem[]>(books);
+  const BookListConsumer = useContext(BookListContext);
+
   return (
     <div className="min-h-full text-white bg-primary-bg">
-      <Modal
-        isModal={isModal}
-        setIsModal={setIsModal}
-        setBookList={setBookList}
-        bookList={bookList}
-        initForm={initForm}
-      />
+      <Modal isModal={isModal} setIsModal={setIsModal} initForm={initForm} />
       <nav className="bg-primary-nav h-24 flex items-center fixed inset-0 z-[2]">
         <h1 className="text-4xl mr-auto flex flex-1 justify-center">Library</h1>
         <button
@@ -56,12 +37,10 @@ function App() {
       </nav>
       {/* ISSUE-1 Area End */}
       <div className="pt-28 flex gap-10 flex-wrap justify-center items-center">
-        {bookList.map((currBook) => (
+        {BookListConsumer.bookList.map((currBook) => (
           <BookItem
             key={currBook.title}
             book={currBook}
-            setBookList={setBookList}
-            bookList={bookList}
             setInitForm={setInitForm}
             setIsModal={setIsModal}
           />

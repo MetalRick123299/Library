@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { XCircleIcon } from '@heroicons/react/20/solid';
-import { IBookItem } from './BookItem';
+import { IBookItem } from './contexts/BookList';
 
 export const emptyForm: IBookItem = {
   title: '',
@@ -13,18 +13,10 @@ export const emptyForm: IBookItem = {
 interface ModalProps {
   isModal: boolean;
   setIsModal: Dispatch<SetStateAction<boolean>>;
-  setBookList: Dispatch<SetStateAction<IBookItem[]>>;
-  bookList: IBookItem[];
   initForm: IBookItem;
 }
 
-export default function Modal({
-  isModal,
-  setIsModal,
-  setBookList,
-  bookList,
-  initForm,
-}: ModalProps) {
+export default function Modal({ isModal, setIsModal, initForm }: ModalProps) {
   const [formInputs, setFormInputs] = useState<IBookItem>(initForm);
   const [isEdit, setIsEdit] = useState(false);
 
@@ -55,10 +47,13 @@ export default function Modal({
     const { title, pagesRead, totalPages } = formInputs;
     e.preventDefault();
 
-    if (bookList.findIndex((ele) => ele.title === title) !== -1) return;
-    if (pagesRead > totalPages) return;
+    // useContext
 
-    setBookList((prev) => [...prev, formInputs]);
+    // if (bookList.findIndex((ele) => ele.title === title) !== -1) return;
+    // if (pagesRead > totalPages) return;
+
+    // setBookList((prev) => [...prev, formInputs]);
+
     setIsModal(false);
     setFormInputs(emptyForm);
   };
