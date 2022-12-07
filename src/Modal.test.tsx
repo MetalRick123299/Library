@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Modal, { emptyForm } from './Modal';
-import { IBookItem } from './BookItem';
+import { IBookItem, BookListProvider } from './contexts/BookList';
 
 describe('Modal Tests', () => {
   const book: IBookItem = {
@@ -9,19 +9,19 @@ describe('Modal Tests', () => {
     pagesRead: 45,
     totalPages: 586,
   };
-  const mockFunction = vi.fn();
+  const mockFn = vi.fn();
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let modal: any;
+  beforeEach(() => {
+    modal = render(
+      <BookListProvider>
+        <Modal isModal setIsModal={mockFn} initForm={emptyForm} />
+      </BookListProvider>
+    );
+  });
 
   it('Modal Structure', () => {
-    render(
-      <Modal
-        isModal
-        setIsModal={mockFunction}
-        setBookList={mockFunction}
-        bookList={[book]}
-        initForm={emptyForm}
-      />
-    );
-
     const titleInput = screen.getByRole('textbox', { name: /title/i });
     const authorInput = screen.getByRole('textbox', { name: /author/i });
     const pagesReadInput = screen.getByRole('spinbutton', {
@@ -37,30 +37,11 @@ describe('Modal Tests', () => {
     fireEvent.change(totalPagesInput, { target: { value: book.totalPages } });
   });
   it('Modal Snapshot', () => {
-    const modal = render(
-      <Modal
-        isModal
-        setIsModal={mockFunction}
-        setBookList={mockFunction}
-        bookList={[book]}
-        initForm={emptyForm}
-      />
-    );
     expect(modal).toMatchSnapshot();
   });
 
   it('Happy Path Submit', () => {});
-  it.only('No Pages Read more than Total Pages', () => {
-    render(
-      <Modal
-        isModal
-        setIsModal={mockFunction}
-        setBookList={mockFunction}
-        bookList={[book]}
-        initForm={emptyForm}
-      />
-    );
-
+  it('No Pages Read more than Total Pages', () => {
     const titleInput = screen.getByRole('textbox', { name: /title/i });
     const authorInput = screen.getByRole('textbox', { name: /author/i });
     const pagesReadInput = screen.getByRole('spinbutton', {

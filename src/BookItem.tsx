@@ -1,10 +1,16 @@
-import React, { useRef, useState, Dispatch, SetStateAction } from 'react';
+import React, {
+  useRef,
+  useState,
+  Dispatch,
+  SetStateAction,
+  useContext,
+} from 'react';
 import {
   ChevronDownIcon,
   ChevronUpIcon,
   PencilSquareIcon,
 } from '@heroicons/react/20/solid/esm';
-import { IBookItem } from './contexts/BookList';
+import { BookListContext, IBookItem } from './contexts/BookList';
 
 interface IBookItemProps {
   book: IBookItem;
@@ -89,19 +95,19 @@ export default function BookItem({
     }
   };
 
+  const { bookList, setBookList } = useContext(BookListContext);
+
   const handleDelete = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const parent = e.currentTarget.parentElement;
     const currtitle = parent?.firstElementChild?.innerHTML;
 
-    // useContext
+    const idx = bookList.findIndex((ele) => ele.title === currtitle);
 
-    // const idx = bookList.findIndex((ele) => ele.title === currtitle);
-
-    // setBookList((prev) => {
-    //   const newArr = [...prev];
-    //   newArr.splice(idx, 1);
-    //   return newArr;
-    // });
+    setBookList((prev) => {
+      const newArr = [...prev];
+      newArr.splice(idx, 1);
+      return newArr;
+    });
   };
 
   const handleEdit = () => {

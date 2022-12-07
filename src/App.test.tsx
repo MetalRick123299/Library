@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
-import { IBookItem } from './BookItem';
+import { IBookItem, BookListProvider } from './contexts/BookList';
 
 describe('Main App', () => {
   const book: IBookItem = {
@@ -13,7 +13,11 @@ describe('Main App', () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let app: any;
   beforeEach(() => {
-    app = render(<App />);
+    app = render(
+      <BookListProvider>
+        <App />
+      </BookListProvider>
+    );
   });
 
   it('App Structure', () => {

@@ -7,7 +7,7 @@ import { BookListContext } from './contexts/BookList';
 function App() {
   const [isModal, setIsModal] = useState(false);
   const [initForm, setInitForm] = useState(emptyForm);
-  const BookListConsumer = useContext(BookListContext);
+  const { bookList, setBookList } = useContext(BookListContext);
 
   return (
     <div className="min-h-full text-white bg-primary-bg">
@@ -37,7 +37,7 @@ function App() {
       </nav>
       {/* ISSUE-1 Area End */}
       <div className="pt-28 flex gap-10 flex-wrap justify-center items-center">
-        {BookListConsumer.bookList.map((currBook) => (
+        {bookList.map((currBook) => (
           <BookItem
             key={currBook.title}
             book={currBook}

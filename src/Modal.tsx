@@ -1,7 +1,13 @@
 import clsx from 'clsx';
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+  useContext,
+} from 'react';
 import { XCircleIcon } from '@heroicons/react/20/solid';
-import { IBookItem } from './contexts/BookList';
+import { IBookItem, BookListContext } from './contexts/BookList';
 
 export const emptyForm: IBookItem = {
   title: '',
@@ -43,16 +49,20 @@ export default function Modal({ isModal, setIsModal, initForm }: ModalProps) {
     setFormInputs((prev) => ({ ...prev, [currName]: currValue }));
   };
 
+  const { bookList, setBookList } = useContext(BookListContext);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    const { title, pagesRead, totalPages } = formInputs;
+    const { title, author, pagesRead, totalPages } = formInputs;
     e.preventDefault();
 
-    // useContext
+    if (pagesRead > totalPages) return;
+    if (totalPages <= 0 || pagesRead < 0) return;
 
-    // if (bookList.findIndex((ele) => ele.title === title) !== -1) return;
-    // if (pagesRead > totalPages) return;
+    const idx = bookList.findIndex((ele) => ele.title === title);
 
-    // setBookList((prev) => [...prev, formInputs]);
+    if (idx !== -1) return;
+
+    setBookList((prev) => [...prev, formInputs]);
 
     setIsModal(false);
     setFormInputs(emptyForm);

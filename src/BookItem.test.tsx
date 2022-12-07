@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import BookItem, { IBookItem } from './BookItem';
+import BookItem from './BookItem';
+import { IBookItem, BookListProvider } from './contexts/BookList';
 
 describe('Book Item', () => {
   const mockFn = vi.fn();
@@ -25,7 +26,11 @@ describe('Book Item', () => {
   const bookArray = [book, book2, book3];
 
   it('BookItem Structure', () => {
-    render(<BookItem setBookList={mockFn} bookList={bookArray} book={book} />);
+    render(
+      <BookListProvider>
+        <BookItem book={book} setInitForm={mockFn} setIsModal={mockFn} />
+      </BookListProvider>
+    );
 
     const title = screen.getByRole('heading', { level: 2, name: book.title });
     const author = screen.getByText(book.author);
@@ -48,7 +53,9 @@ describe('Book Item', () => {
   it('Multiple books', () => {
     bookArray.forEach((currBook) => {
       render(
-        <BookItem setBookList={mockFn} bookList={bookArray} book={currBook} />
+        <BookListProvider>
+          <BookItem book={currBook} setInitForm={mockFn} setIsModal={mockFn} />
+        </BookListProvider>
       );
 
       const title = screen.getByRole('heading', {
@@ -74,7 +81,9 @@ describe('Book Item', () => {
 
   it('SnapShot', () => {
     const bookItem = render(
-      <BookItem book={book} setBookList={mockFn} bookList={bookArray} />
+      <BookListProvider>
+        <BookItem book={book} setInitForm={mockFn} setIsModal={mockFn} />
+      </BookListProvider>
     );
     expect(bookItem).toMatchSnapshot();
   });
@@ -82,7 +91,9 @@ describe('Book Item', () => {
   it('Progress Bar Shows % of current book read', () => {
     bookArray.forEach((currBook) => {
       render(
-        <BookItem setBookList={mockFn} bookList={bookArray} book={currBook} />
+        <BookListProvider>
+          <BookItem book={currBook} setInitForm={mockFn} setIsModal={mockFn} />
+        </BookListProvider>
       );
 
       const percentRead = `${(
@@ -97,7 +108,11 @@ describe('Book Item', () => {
   });
   // Do => 11/26/2022
   it('Progress Bar Click', () => {
-    render(<BookItem setBookList={mockFn} bookList={bookArray} book={book} />);
+    render(
+      <BookListProvider>
+        <BookItem book={book} setInitForm={mockFn} setIsModal={mockFn} />
+      </BookListProvider>
+    );
     const pagesElement = screen.getByText(
       `${book.pagesRead} / ${book.totalPages}`
     );
@@ -125,11 +140,13 @@ describe('Book Item', () => {
   });
   it('Does not pass limits less than 0 CLICK ONLY', () => {
     render(
-      <BookItem
-        setBookList={mockFn}
-        bookList={bookArray}
-        book={{ ...book, pagesRead: 0 }}
-      />
+      <BookListProvider>
+        <BookItem
+          book={{ ...book, pagesRead: 0 }}
+          setInitForm={mockFn}
+          setIsModal={mockFn}
+        />
+      </BookListProvider>
     );
     const pagesElement = screen.getByText(`${0} / ${book.totalPages}`);
     const downButton = screen.getByRole('button', { name: 'Down Arrow' });
@@ -139,11 +156,13 @@ describe('Book Item', () => {
   });
   it('Does not pass limits greater than totalPages CLICK ONLY', () => {
     render(
-      <BookItem
-        setBookList={mockFn}
-        bookList={bookArray}
-        book={{ ...book, pagesRead: book.totalPages }}
-      />
+      <BookListProvider>
+        <BookItem
+          book={{ ...book, pagesRead: book.totalPages }}
+          setInitForm={mockFn}
+          setIsModal={mockFn}
+        />
+      </BookListProvider>
     );
     const pagesElement = screen.getByText(
       `${book.totalPages} / ${book.totalPages}`
@@ -156,7 +175,11 @@ describe('Book Item', () => {
 
   // Do => 11/29/22
   it.todo('Delete Button deletes book', () => {
-    render(<BookItem setBookList={mockFn} bookList={bookArray} book={book} />);
+    render(
+      <BookListProvider>
+        <BookItem book={book} setInitForm={mockFn} setIsModal={mockFn} />
+      </BookListProvider>
+    );
 
     let title = screen.queryByRole('heading', { level: 2, name: book.title });
     const deleteButton = screen.getByRole('button', { name: 'Delete' });
