@@ -1,9 +1,10 @@
 import React, {
   useRef,
   useState,
+  useEffect,
+  useContext,
   Dispatch,
   SetStateAction,
-  useContext,
 } from 'react';
 import {
   ChevronDownIcon,
@@ -23,8 +24,29 @@ export default function BookItem({
   setIsModal,
   setInitForm,
 }: IBookItemProps) {
+  const { bookList, setBookList } = useContext(BookListContext);
+
   const [bookDetails, setBookDetails] = useState(book);
   const { title, author, pagesRead, totalPages } = bookDetails;
+
+  useEffect(() => {
+    setBookDetails(book);
+  }, [book]);
+
+  useEffect(() => {
+    const timeoutID = setTimeout(() => {
+      const idx = bookList.findIndex((ele) => ele.title === bookDetails.title);
+      setBookList((prev) => {
+        const newArr = [...prev];
+        newArr[idx] = bookDetails;
+        return newArr;
+      });
+    }, 300);
+
+    return () => clearTimeout(timeoutID);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bookDetails]);
+
   const varyRef = useRef<NodeJS.Timer | null>(null);
   let timerID: NodeJS.Timer;
 
@@ -95,10 +117,8 @@ export default function BookItem({
     }
   };
 
-  const { bookList, setBookList } = useContext(BookListContext);
-
   const handleDelete = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const parent = e.currentTarget.parentElement;
+    const parent = e.currentTarget.parentElement?.parentElement;
     const currtitle = parent?.firstElementChild?.innerHTML;
 
     const idx = bookList.findIndex((ele) => ele.title === currtitle);

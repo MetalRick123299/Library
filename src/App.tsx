@@ -20,6 +20,7 @@ function App() {
           onClick={() => {
             setInitForm(emptyForm);
             setIsModal(true);
+            console.log(bookList);
           }}
         >
           Add Book

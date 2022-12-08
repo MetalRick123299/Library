@@ -23,6 +23,8 @@ interface ModalProps {
 }
 
 export default function Modal({ isModal, setIsModal, initForm }: ModalProps) {
+  const { bookList, setBookList } = useContext(BookListContext);
+
   const [formInputs, setFormInputs] = useState<IBookItem>(initForm);
   const [isEdit, setIsEdit] = useState(false);
 
@@ -34,7 +36,7 @@ export default function Modal({ isModal, setIsModal, initForm }: ModalProps) {
     } else {
       setIsEdit(true);
     }
-  }, [initForm]);
+  }, [isModal]);
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const currName = e.currentTarget.name.replace(/\s/g, '');
@@ -49,8 +51,6 @@ export default function Modal({ isModal, setIsModal, initForm }: ModalProps) {
     setFormInputs((prev) => ({ ...prev, [currName]: currValue }));
   };
 
-  const { bookList, setBookList } = useContext(BookListContext);
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const { title, author, pagesRead, totalPages } = formInputs;
     e.preventDefault();
@@ -58,11 +58,20 @@ export default function Modal({ isModal, setIsModal, initForm }: ModalProps) {
     if (pagesRead > totalPages) return;
     if (totalPages <= 0 || pagesRead < 0) return;
 
+    const initIdx = bookList.findIndex((ele) => ele.title === initForm.title);
     const idx = bookList.findIndex((ele) => ele.title === title);
 
-    if (idx !== -1) return;
-
-    setBookList((prev) => [...prev, formInputs]);
+    // If is Editing and title doesn't exist in bookList
+    if (isEdit && (idx === -1 || idx === initIdx)) {
+      setBookList((prev) => {
+        const newArr = [...prev];
+        newArr[initIdx] = formInputs;
+        return [...newArr];
+      });
+      // If not Edit and not in bookList
+    } else if (!isEdit && idx === -1) {
+      setBookList((prev) => [...prev, formInputs]);
+    } else return;
 
     setIsModal(false);
     setFormInputs(emptyForm);
@@ -80,7 +89,7 @@ export default function Modal({ isModal, setIsModal, initForm }: ModalProps) {
         action=""
         className="flex flex-col items-center gap-3 bg-primary-bg p-5 rounded-xl border-primary-nav border-8"
         aria-label={`${isEdit ? 'Edit' : 'Add'} Book Form`}
-        onSubmit={handleSubmit}
+        onSubmit={(e) => handleSubmit(e)}
       >
         <label className="">
           Search Book
