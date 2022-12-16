@@ -172,33 +172,4 @@ describe('Book Item', () => {
     fireEvent.click(upButton);
     expect(pagesElement.innerHTML).toBe('586 / 586');
   });
-
-  // Do => 11/29/22
-  it.todo('Delete Button deletes book', () => {
-    render(
-      <BookListProvider>
-        <BookItem book={book} setInitForm={mockFn} setIsModal={mockFn} />
-      </BookListProvider>
-    );
-
-    let title = screen.queryByRole('heading', { level: 2, name: book.title });
-    const deleteButton = screen.getByRole('button', { name: 'Delete' });
-
-    expect(title?.innerHTML).toBe(book.title);
-    expect(deleteButton).toBe(deleteButton);
-
-    fireEvent.click(deleteButton);
-
-    title = screen.queryByRole('heading', { level: 2, name: book.title });
-    const newDeleteButton = screen.queryByRole('button', { name: 'Delete' });
-
-    expect(title).toBe(null);
-    expect(newDeleteButton).toBe(null);
-  });
-
-  // Update Tests When Firebase or Adding Books is Implemented
-
-  // Do => 12/01/22
-  it.todo('Modal for Edit Book', () => {});
-  it.todo('Edit Todo Works', () => {});
 });

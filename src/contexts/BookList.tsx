@@ -39,7 +39,7 @@ export const BookListContext = createContext<IBookListContext>(null!);
 BookListContext.displayName = 'BookListContext';
 
 export function BookListProvider({ children }: { children: ReactNode }) {
-  const [bookList, setBookList] = useState<IBookItem[]>(books);
+  const [bookList, setBookList] = useState<IBookItem[]>([]);
 
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values

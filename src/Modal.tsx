@@ -151,7 +151,11 @@ export default function Modal({ isModal, setIsModal, initForm }: ModalProps) {
         </label>
 
         <div className="flex items-start gap-3 bg-primary-item p-3 rounded-xl">
-          <button type="submit" className="" aria-label="Add Book Submit">
+          <button
+            type="submit"
+            className=""
+            aria-label={`${isEdit ? 'Edit' : 'Add'} Book Submit`}
+          >
             {`${isEdit ? 'Edit' : 'Add'} Form`}
           </button>
           <XCircleIcon

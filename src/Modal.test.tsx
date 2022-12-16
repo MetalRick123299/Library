@@ -40,7 +40,6 @@ describe('Modal Tests', () => {
     expect(modal).toMatchSnapshot();
   });
 
-  it('Happy Path Submit', () => {});
   it('No Pages Read more than Total Pages', () => {
     const titleInput = screen.getByRole('textbox', { name: /title/i });
     const authorInput = screen.getByRole('textbox', { name: /author/i });
@@ -56,11 +55,15 @@ describe('Modal Tests', () => {
     fireEvent.change(pagesReadInput, { target: { value: book.totalPages } });
     fireEvent.change(totalPagesInput, { target: { value: book.pagesRead } });
 
-    const addBookSubmit = screen.getByRole('button', {
+    let addBookSubmit = screen.getByRole('button', {
       name: 'Add Book Submit',
     });
     fireEvent.click(addBookSubmit);
 
-    // expect form to throw error
+    addBookSubmit = screen.getByRole('button', {
+      name: 'Add Book Submit',
+    });
+
+    expect(addBookSubmit).not.toBe(null);
   });
 });
