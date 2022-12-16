@@ -10,6 +10,7 @@ import React, {
 } from 'react';
 
 export type IBookItem = {
+  id: string;
   title: string;
   author: string;
   pagesRead: number;
@@ -17,6 +18,7 @@ export type IBookItem = {
 };
 
 const book: IBookItem = {
+  id: 'Harry Potte',
   title: 'Harry Potter',
   author: 'Maybe JK',
   pagesRead: 256,

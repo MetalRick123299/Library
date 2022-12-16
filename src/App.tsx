@@ -1,13 +1,31 @@
 import { useContext, useEffect, useState } from 'react';
 
+import { collection, onSnapshot } from 'firebase/firestore';
+import database from './firebase.config';
+
 import BookItem from './BookItem';
 import Modal, { emptyForm } from './Modal';
-import { BookListContext } from './contexts/BookList';
+import { BookListContext, IBookItem } from './contexts/BookList';
 
 function App() {
   const [isModal, setIsModal] = useState(false);
   const [initForm, setInitForm] = useState(emptyForm);
   const { bookList, setBookList } = useContext(BookListContext);
+
+  const collectionRef = collection(database, 'BookLists');
+
+  useEffect(() => {
+    onSnapshot(collectionRef, (snapshot) => {
+      setBookList(
+        snapshot.docs.map((doc) => {
+          return {
+            id: doc.id,
+            ...doc.data(),
+          } as IBookItem;
+        })
+      );
+    });
+  });
 
   return (
     <div className="min-h-full text-white bg-primary-bg">
@@ -40,7 +58,7 @@ function App() {
       <div className="pt-28 flex gap-10 flex-wrap justify-center items-center">
         {bookList.map((currBook) => (
           <BookItem
-            key={currBook.title}
+            key={currBook.id}
             book={currBook}
             setInitForm={setInitForm}
             setIsModal={setIsModal}
