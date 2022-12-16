@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { collection, onSnapshot } from 'firebase/firestore';
-import database from './firebase.config';
+import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+import { auth, db } from './firebase.config';
 
 import BookItem from './BookItem';
 import Modal, { emptyForm } from './Modal';
@@ -12,20 +14,28 @@ function App() {
   const [initForm, setInitForm] = useState(emptyForm);
   const { bookList, setBookList } = useContext(BookListContext);
 
-  const collectionRef = collection(database, 'BookLists');
+  const [user] = useAuthState(auth);
 
-  useEffect(() => {
-    onSnapshot(collectionRef, (snapshot) => {
-      setBookList(
-        snapshot.docs.map((doc) => {
-          return {
-            id: doc.id,
-            ...doc.data(),
-          } as IBookItem;
-        })
-      );
-    });
-  });
+  const signUserIn = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((resp) => {
+        console.log(resp);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  const signUserOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log('Signout');
+      })
+      .catch(() => {
+        console.log('Error Signing Out');
+      });
+  };
 
   return (
     <div className="min-h-full text-white bg-primary-bg">
@@ -43,17 +53,28 @@ function App() {
         >
           Add Book
         </button>
-        <div className="gap-3 justify-center ml-auto flex flex-1 justify-self-center">
-          <img
-            className="rounded-full h-10"
-            src="https://via.placeholder.com/40"
-            alt="Profile"
-          />
-          <button type="button" className="text-4xl hidden md:block ">
-            Sign In
-          </button>
+        <div className="justify-center flex flex-1 justify-self-center">
+          {user ? (
+            <button className="flex gap-3" type="button" onClick={signUserOut}>
+              <img
+                className="rounded-full h-10"
+                src="https://via.placeholder.com/40"
+                alt="Profile"
+              />
+              <span className="text-4xl hidden md:block ">Sign Out</span>
+            </button>
+          ) : (
+            <button
+              onClick={signUserIn}
+              type="button"
+              className="text-4xl hidden md:block "
+            >
+              Sign In
+            </button>
+          )}
         </div>
       </nav>
+
       {/* ISSUE-1 Area End */}
       <div className="pt-28 flex gap-10 flex-wrap justify-center items-center">
         {bookList.map((currBook) => (

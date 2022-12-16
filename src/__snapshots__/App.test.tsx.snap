@@ -123,13 +123,8 @@ exports[`Main App > Snap Shot 1`] = `
             Add Book
           </button>
           <div
-            class="gap-3 justify-center ml-auto flex flex-1 justify-self-center"
+            class="justify-center flex flex-1 justify-self-center"
           >
-            <img
-              alt="Profile"
-              class="rounded-full h-10"
-              src="https://via.placeholder.com/40"
-            />
             <button
               class="text-4xl hidden md:block "
               type="button"
@@ -263,13 +258,8 @@ exports[`Main App > Snap Shot 1`] = `
           Add Book
         </button>
         <div
-          class="gap-3 justify-center ml-auto flex flex-1 justify-self-center"
+          class="justify-center flex flex-1 justify-self-center"
         >
-          <img
-            alt="Profile"
-            class="rounded-full h-10"
-            src="https://via.placeholder.com/40"
-          />
           <button
             class="text-4xl hidden md:block "
             type="button"
