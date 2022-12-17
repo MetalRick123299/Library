@@ -3,6 +3,9 @@ import { useContext, useEffect, useState } from 'react';
 import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
+import { collection, setDoc, doc, getDoc } from 'firebase/firestore';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+
 import { auth, db } from './firebase.config';
 
 import BookItem from './BookItem';
@@ -15,7 +18,6 @@ function App() {
   const { bookList, setBookList } = useContext(BookListContext);
 
   const [user] = useAuthState(auth);
-
   const signUserIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
@@ -36,6 +38,28 @@ function App() {
         console.log('Error Signing Out');
       });
   };
+
+  useEffect(() => {
+    const getBookList = async () => {
+      if (user) {
+        // setBookList to User's BookList
+        const userBookList = doc(db, `Users/${user.uid}`);
+        const mySnapshot = await getDoc(userBookList);
+
+        if (mySnapshot.exists()) {
+          setBookList(mySnapshot.data().BookList);
+        } else {
+          await setDoc(userBookList, {
+            BookList: [],
+          });
+          setBookList([]);
+        }
+      } else {
+        setBookList([]);
+      }
+    };
+    getBookList();
+  }, [user]);
 
   return (
     <div className="min-h-full text-white bg-primary-bg">
