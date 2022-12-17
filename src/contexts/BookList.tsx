@@ -1,16 +1,15 @@
 /* eslint-disable import/prefer-default-export */
 import React, {
   createContext,
-  useMemo,
   Dispatch,
   SetStateAction,
   ReactNode,
   useState,
-  useContext,
 } from 'react';
+import * as uuid from 'uuid';
 
 export type IBookItem = {
-  id: string;
+  bookId: string;
   title: string;
   author: string;
   pagesRead: number;
@@ -18,7 +17,7 @@ export type IBookItem = {
 };
 
 const book: IBookItem = {
-  id: 'Harry Potte',
+  bookId: uuid.v4(),
   title: 'Harry Potter',
   author: 'Maybe JK',
   pagesRead: 256,

@@ -3,14 +3,14 @@ import { useContext, useEffect, useState } from 'react';
 import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-import { collection, setDoc, doc, getDoc } from 'firebase/firestore';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { setDoc, doc, getDoc } from 'firebase/firestore';
+// import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import { auth, db } from './firebase.config';
 
 import BookItem from './BookItem';
 import Modal, { emptyForm } from './Modal';
-import { BookListContext, IBookItem } from './contexts/BookList';
+import { BookListContext } from './contexts/BookList';
 
 function App() {
   const [isModal, setIsModal] = useState(false);
@@ -103,7 +103,7 @@ function App() {
       <div className="pt-28 flex gap-10 flex-wrap justify-center items-center">
         {bookList.map((currBook) => (
           <BookItem
-            key={currBook.id}
+            key={currBook.bookId}
             book={currBook}
             setInitForm={setInitForm}
             setIsModal={setIsModal}
