@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-import { setDoc, doc, getDoc } from 'firebase/firestore';
+import { setDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
 // import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import { auth, db } from './firebase.config';
@@ -14,7 +15,7 @@ import { BookListContext } from './contexts/BookList';
 
 function App() {
   const [isModal, setIsModal] = useState(false);
-  const [initForm, setInitForm] = useState(emptyForm);
+  const [initForm, setInitForm] = useState({ ...emptyForm, bookId: uuid() });
   const { bookList, setBookList } = useContext(BookListContext);
 
   const [user] = useAuthState(auth);
@@ -61,7 +62,16 @@ function App() {
     getBookList();
   }, [user]);
 
-  useEffect(() => {}, [bookList]);
+  useEffect(() => {
+    const updateData = async () => {
+      await updateDoc(doc(db, `Users/${user?.uid}`), {
+        BookList: bookList,
+      });
+    };
+    console.log('Book List Updated');
+    console.log(bookList);
+    updateData();
+  }, [bookList]);
 
   return (
     <div className="min-h-full text-white bg-primary-bg">
@@ -72,7 +82,7 @@ function App() {
           type="button"
           className=" text-3xl border-2 border-primary-bg px-6 py-3 rounded-full shadow-xl active:shadow-none active:translate-y-1 transition-all whitespace-nowrap flex"
           onClick={() => {
-            setInitForm(emptyForm);
+            setInitForm({ ...emptyForm, bookId: uuid() });
             setIsModal(true);
             console.log(bookList);
           }}

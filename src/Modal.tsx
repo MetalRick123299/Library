@@ -78,7 +78,7 @@ export default function Modal({ isModal, setIsModal, initForm }: ModalProps) {
     } else return;
 
     setIsModal(false);
-    setFormInputs(emptyForm);
+    setFormInputs({ ...emptyForm, bookId: uuid() });
   };
 
   return (

@@ -44,7 +44,7 @@ export default function BookItem({
         newArr[idx] = bookDetails;
         return newArr;
       });
-    }, 300);
+    }, 600);
 
     return () => clearTimeout(timeoutID);
     // eslint-disable-next-line react-hooks/exhaustive-deps
