@@ -6,7 +6,7 @@ import React, {
   ReactNode,
   useState,
 } from 'react';
-import * as uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 export type IBookItem = {
   bookId: string;
@@ -17,7 +17,7 @@ export type IBookItem = {
 };
 
 const book: IBookItem = {
-  bookId: uuid.v4(),
+  bookId: uuid(),
   title: 'Harry Potter',
   author: 'Maybe JK',
   pagesRead: 256,

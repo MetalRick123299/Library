@@ -61,6 +61,8 @@ function App() {
     getBookList();
   }, [user]);
 
+  useEffect(() => {}, [bookList]);
+
   return (
     <div className="min-h-full text-white bg-primary-bg">
       <Modal isModal={isModal} setIsModal={setIsModal} initForm={initForm} />
@@ -82,7 +84,7 @@ function App() {
             <button className="flex gap-3" type="button" onClick={signUserOut}>
               <img
                 className="rounded-full h-10"
-                src="https://via.placeholder.com/40"
+                src={user.photoURL ? user.photoURL : ''}
                 alt="Profile"
               />
               <span className="text-4xl hidden md:block ">Sign Out</span>

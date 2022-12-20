@@ -6,10 +6,12 @@ import React, {
   useState,
   useContext,
 } from 'react';
+import { v4 as uuid } from 'uuid';
 import { XCircleIcon } from '@heroicons/react/20/solid';
 import { IBookItem, BookListContext } from './contexts/BookList';
 
 export const emptyForm: IBookItem = {
+  bookId: uuid(),
   title: '',
   author: '',
   pagesRead: 0,
@@ -52,7 +54,9 @@ export default function Modal({ isModal, setIsModal, initForm }: ModalProps) {
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    const { title, author, pagesRead, totalPages } = formInputs;
+    // Only Destructuring things that need to be checked
+    const { title, pagesRead, totalPages } = formInputs;
+
     e.preventDefault();
 
     if (pagesRead > totalPages) return;

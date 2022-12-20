@@ -26,9 +26,12 @@ export default function BookItem({
 }: IBookItemProps) {
   const { bookList, setBookList } = useContext(BookListContext);
 
-  const [bookDetails, setBookDetails] = useState(book);
+  const [bookDetails, setBookDetails] = useState<IBookItem>(book);
   const { title, author, pagesRead, totalPages } = bookDetails;
 
+  // This may not be needed
+  // Doesn't this happen anyways?
+  // As when book changes it rerenders each book
   useEffect(() => {
     setBookDetails(book);
   }, [book]);
