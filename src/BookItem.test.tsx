@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { v4 as uuid } from 'uuid';
 import BookItem from './BookItem';
 import { IBookItem, BookListProvider } from './contexts/BookList';
 
@@ -6,18 +7,21 @@ describe('Book Item', () => {
   const mockFn = vi.fn();
 
   const book: IBookItem = {
+    bookId: uuid(),
     title: 'Harry Potter',
     author: 'J.K Rowling',
     pagesRead: 45,
     totalPages: 586,
   };
   const book2: IBookItem = {
+    bookId: uuid(),
     title: 'The Great Gatsby',
     author: 'F. Scott Fitzgerald',
     pagesRead: 104,
     totalPages: 208,
   };
   const book3: IBookItem = {
+    bookId: uuid(),
     title: 'The Lightning Thief',
     author: 'Rick Riordan',
     pagesRead: 372,

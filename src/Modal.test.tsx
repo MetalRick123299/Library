@@ -1,9 +1,11 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { v4 as uuid } from 'uuid';
 import Modal, { emptyForm } from './Modal';
 import { IBookItem, BookListProvider } from './contexts/BookList';
 
 describe('Modal Tests', () => {
   const book: IBookItem = {
+    bookId: uuid(),
     title: 'Harry Potter',
     author: 'J.K Rowling',
     pagesRead: 45,

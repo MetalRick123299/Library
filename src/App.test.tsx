@@ -1,9 +1,11 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { v4 as uuid } from 'uuid';
 import App from './App';
 import { IBookItem, BookListProvider, books } from './contexts/BookList';
 
 describe('Main App', () => {
   const book: IBookItem = {
+    bookId: uuid(),
     title: 'Harry Potter',
     author: 'Not J.K Rowling',
     pagesRead: 45,
@@ -207,7 +209,7 @@ describe('Main App', () => {
     expect(editBookSubmit).not.toBe(null);
   });
 
-  // Do => 12/16/22 -> Firebase Update
-  it.todo('Signing In', () => {});
-  it.todo('Signing Out', () => {});
+  // // Do => 12/16/22 -> Firebase Update
+  // it.todo('Signing In', () => {});
+  // it.todo('Signing Out', () => {});
 });
